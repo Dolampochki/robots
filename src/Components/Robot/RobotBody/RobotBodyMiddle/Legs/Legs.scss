@@ -1,0 +1,39 @@
+@import "Styles/variables.scss";
+@import "Styles/mixin.scss";
+
+.legs {
+    justify-content: space-around;
+    width: 100%;
+    .leg {
+        flex-direction: column;
+
+        &-top {
+            height: 4rem;
+            width: 2rem;
+            margin-bottom: $spacer-1;
+            background-color: $layoutBorderColor;
+        }
+
+        &-bottom {
+            height: 4rem;
+            width: 2rem;
+            margin-bottom: $spacer-1;
+            background-color: $layoutBorderColor;
+        }
+
+        &-sole {
+            height: 2rem;
+            width: 3rem;
+            margin-bottom: $spacer-1;
+            background-color: $layoutBorderColor;
+        }
+
+        &.right {
+
+        }
+
+        &.left {
+            
+        }
+    }
+}

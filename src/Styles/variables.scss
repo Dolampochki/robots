@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Prompt:wght@200;300;400&display=swap");
+
+// gray colors
+$baseFontColor: #d8dfd7;
+$lightenFontColorGray: #F6F6F6; // light gray
+$lightFontColor: #BDBDBD; // light text gray
+$darkFontColor: #828282; // text gray
+
+$baseBorderColor: #A3A1A1; // middle gray
+$layoutBorderColor: #5F5F5F; // gray
+
+$globalBgColor: #000;
+$lightBgColor: #262626; 
+$darkBgColor: #171717; 
+
+$tableLightColor: #EBEBEB; // gray
+$tableLightBgColor: #393939; // mix dark green
+
+// theme colors
+
+// $themeColor: #41AD4E;
+$themeColor: #65D283;
+$themeColor07: rgba($themeColor, 0.7);
+$themeColorSecondary: #41AD4E;
+$warningColor: #FF8B37;
+$darkWarningColor:  #ADA241;
+$errorColor: #FF4A4A;
+$safeColor: #00ca00;
+
+
+// spacers
+
+$spacer: 1rem;             // 16px
+$spacer-1: $spacer * 0.5;  // 8px
+$spacer-2: $spacer;        // 16px
+$spacer-3: $spacer * 1.5;  // 24px
+$spacer-4: $spacer * 2;    // 32px
+$spacer-5: $spacer * 2.5;  // 40px
+$spacer-6: $spacer * 3;    // 48px
+
+$spacer-125: $spacer * 1.25; // 20px
+
+
+// fonts
+
+$font-size-0: 0.625rem; // 10px
+$font-size-1: 0.75rem; // 12px
+$font-size-2: 0.875rem; // 14px
+$font-size-3: $spacer; // 16px
+$font-size-4: 1.125rem; // 18px
+$font-size-5: $spacer-125; // 20px
+$font-size-6: $spacer-3; // 24px
+$font-size-7: $spacer-4; // 32px
+$font-size-8: 2.25rem; // 36px
+
+$font-family-base: "Prompt", sans-serif;
+$font-family-brand: "Orbitron", sans-serif;
+$font-family-code: "Courier New", Courier, monospace;
+
+
+// box shadows
+
+$box-shadow-base: 0 0 0 0.25rem rgba($themeColor, 0.3);
+
+
+// borders
+
+$border-radius-sm: 6px;
+$border-radius-round: 50%;
+
+
+// inputs
+
+$input-height-base: 45px;
+$input-width-sm: 150px;
+$input-width-md: 180px;
+$input-width-base: 200px;
+$input-width-lg: 240px;
+
+// transition duration
+
+$transition-short: 0.3s;
+$transition-long: 0.5s;
+
+
+// breakpoints
+
+$break-xs: 550px;
+$break-sm: 800px;
+$break-md: 980px;
+$break-lg: 1200px;
+$break-xl: 1400px;
+$break-xxl: 1600px;
+$break-xxxl: 1700px;
+

@@ -1,0 +1,15 @@
+@import "Styles/variables.scss";
+@import "Styles/mixin.scss";
+
+.ear {
+    height: 1rem;
+    width: 0.5rem;
+    background-color: $layoutBorderColor;
+
+    &.right {
+
+    }
+    &.left {
+        
+    }
+}

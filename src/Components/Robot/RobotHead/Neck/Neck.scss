@@ -1,0 +1,9 @@
+@import "Styles/variables.scss";
+@import "Styles/mixin.scss";
+
+.neck {
+    height: 0.5rem;
+    width: 2rem;
+    margin-bottom: $spacer-1;
+    background-color: $layoutBorderColor;
+}

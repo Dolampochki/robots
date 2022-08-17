@@ -1,0 +1,22 @@
+@import "Styles/variables.scss";
+@import "Styles/mixin.scss";
+
+.eyes {
+    justify-content: space-around;
+    width: 100%;
+    margin-top: $spacer-3;
+
+    .eye {
+        height: 1rem;
+        width: 1rem;
+        background-color: $baseBorderColor;
+        border-radius: $border-radius-round;
+
+        &.right {
+
+        }
+        &.left {
+            
+        }
+    }
+}

@@ -1,0 +1,8 @@
+@import "Styles/variables.scss";
+@import "Styles/mixin.scss";
+
+.mouth {
+    height: 0.5rem;
+    width: 2rem;
+    background-color: $baseBorderColor;
+}

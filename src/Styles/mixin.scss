@@ -1,0 +1,15 @@
+@import "Styles/variables.scss";
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin absolutePseudo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    content: "";
+}

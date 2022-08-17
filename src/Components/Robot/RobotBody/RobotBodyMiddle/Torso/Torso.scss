@@ -1,0 +1,11 @@
+@import "Styles/variables.scss";
+@import "Styles/mixin.scss";
+
+.torso {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 12rem;
+    width: 8rem;
+    margin-bottom: $spacer-1;
+    background-color: $layoutBorderColor;
+}

@@ -1,0 +1,31 @@
+@import "Styles/variables.scss";
+@import "Styles/mixin.scss";
+
+.antennas {
+    justify-content: space-around;
+    width: 50%;
+    .antenna {
+        height: 4rem;
+        width: 0.25rem;
+        background-color: $layoutBorderColor;
+
+        &:after {
+            @include absolutePseudo;
+            left: -0.375rem;
+            height: 1rem;
+            width: 1rem;
+            background-color: $layoutBorderColor;
+            border-radius: $border-radius-round;
+        }
+
+        &.right {
+            transform: rotate(45deg);
+            transform-origin: bottom left;
+        }
+
+        &.left {
+            transform: rotate(-45deg);
+            transform-origin: bottom right;
+        }
+    }
+}

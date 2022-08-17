@@ -1,0 +1,10 @@
+@import "Styles/variables.scss";
+@import "Styles/mixin.scss";
+
+.face {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 6rem;
+    width: 6rem;
+    background-color: $layoutBorderColor;
+}

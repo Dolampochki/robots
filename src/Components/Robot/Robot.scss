@@ -1,0 +1,12 @@
+@import "Styles/variables.scss";
+@import "Styles/mixin.scss";
+
+.robot-container {
+    
+    height: 100%;
+    width: 100%;
+
+    .robot {
+        flex-direction: column;
+    }
+}
