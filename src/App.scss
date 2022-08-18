@@ -4,6 +4,10 @@
 
 body {
     background-color: $globalBgColor;
+    * {
+        color: #fff;
+        font-family: $font-family-base;
+    }
 }
 
 .round-button {
@@ -22,6 +26,10 @@ body {
     line-height: 1;
     cursor: pointer;
 
+    i {
+      margin-top: -4px;
+    }
+
     &:hover:not(:disabled) {
         background-color: $themeColor;
         border-color: $themeColor;
@@ -32,5 +40,22 @@ body {
     &:disabled {
         opacity: 0.5;
         cursor: default;
+    }
+}
+
+.done-button {
+    background-color: $themeColor;
+    height: $spacer-4;
+    margin: 0;
+    padding: 0 $spacer;
+    text-align: center;
+    white-space: nowrap;
+    color: $globalBgColor;
+    &:hover:not(:disabled) {
+        color: $globalBgColor;
+        background-color: lighten($themeColor, 10%);
+    }
+    &:disabled {
+        opacity: 0.5;
     }
 }

@@ -13,8 +13,8 @@ export const RobotsCountController = ({ updateCount }) => {
 
     return (
         <div className='robots-count-controller'>
-            <button className='round-button' disabled={count > 5} onClick={() => changeCount(true)}>+</button>
-            <button className='round-button' disabled={count < 2}  onClick={() => changeCount(false)}>-</button>
+            <button className='round-button' disabled={count < 2}  onClick={() => changeCount(false)}><i>-</i></button>
+            <button className='round-button' disabled={count > 5} onClick={() => changeCount(true)}><i>+</i></button>
         </div>
     )
 }

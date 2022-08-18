@@ -1,6 +1,6 @@
 import React from 'react'
 import './RobotHeadMiddle.scss'
-import Ear from './Face/Eyes/Eye'
+import Ear from './Ear/Ear'
 import Face from './Face/Face'
 
 export const RobotHeadMiddle = () => {

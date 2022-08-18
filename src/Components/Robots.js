@@ -6,10 +6,8 @@ import RobotsCountController from './Controllers/RobotsCountController/RobotsCou
 export const Robots = () => {
     const [count, setCount] = useState(1)
     const robotsList = [...Array(count).keys()]
-    console.log(count, robotsList)
     const updateCount = (newCount) => {
         setCount(newCount)
-        console.log(newCount)
     }
     return (
         <div className='container'>
