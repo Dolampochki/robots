@@ -1,3 +1,5 @@
+import { settingsForParts, propsClasses } from './consts'
+
 const capitalizeWord = (word) => {
     if (!word || !['string', 'number'].includes(typeof word)) return ''
     word = `${word}`
@@ -46,7 +48,21 @@ function isObject(object) {
     return object != null && typeof object === 'object' && !Array.isArray(object)
 }
 
+const generateClasses = (part, settings, optional) => {
+    let classes = `${part} ${optional}`
+    if (settingsForParts[part]) {
+        settingsForParts[part].forEach(prop => {
+            if (prop in settings) {
+                if (typeof settings[prop] === 'string') classes += ` ${settings[prop]}`
+                if (typeof settings[prop] === 'boolean' && settings[prop]) classes =+ ` ${propsClasses[prop]}`
+            }
+        })
+    }
+    return classes
+}
+
 export {
     capitalizeWord,
-    isSameObject
+    isSameObject,
+    generateClasses
 }

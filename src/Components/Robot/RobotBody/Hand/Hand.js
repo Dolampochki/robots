@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Hand.scss'
 import SettingsPopup from 'Components/Controllers/SettingsPopup/SettingsPopup'
-import { capitalizeWord, isSameObject } from 'Helpers/helpers'
+import { isSameObject, generateClasses } from 'Helpers/helpers'
 
 export const Hand = ({ side, handSettings, updateHandSettings }) => {
     const [isOpenSettings, setIsOpenSettings] = useState(false)
@@ -22,7 +22,7 @@ export const Hand = ({ side, handSettings, updateHandSettings }) => {
         if (!isSameObject(handSettings, settings)) setSettings(handSettings)
     }, [handSettings])
 
-    const classes = `hand ${side} ${settings.backgroundColor} ${settings.borderColor} ${settings.borderRadius ? 'radius' : ''}`
+    const classes = generateClasses('hand', settings, side)
 
     return (
         <>
@@ -32,10 +32,11 @@ export const Hand = ({ side, handSettings, updateHandSettings }) => {
                 <div className='hand-palm'></div>
             </div>
             <SettingsPopup 
-                name={ `${capitalizeWord(side)} hand` }
+                part='hand'
                 isOpen={isOpenSettings}
                 updateSettings={updateSettings}
-                elementWidth={elementWidth} />
+                elementWidth={elementWidth}
+                settings={settings} />
         </>
     )
 }
