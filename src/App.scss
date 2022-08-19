@@ -10,6 +10,10 @@ body {
     }
 }
 
+button { 
+  cursor: pointer;
+}
+
 .round-button {
     @include flexCenter;
     width: $spacer-6;
@@ -24,7 +28,6 @@ body {
     text-decoration: none;
     font-size: $font-size-7;
     line-height: 1;
-    cursor: pointer;
 
     i {
       margin-top: -4px;

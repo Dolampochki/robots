@@ -13,3 +13,133 @@
     display: block;
     content: "";
 }
+
+@mixin backgroundColor {
+    &.background-grey {
+        &:not(.parent),
+        .parent-prop,
+        .parent-prop:after {
+            background-color: $layoutBorderColor;
+        }
+    }
+    &.background-green {
+        &:not(.parent),
+        .parent-prop,
+        .parent-prop:after {
+            background-color: $themeColor;
+        }
+    }
+    &.background-dark-grey {
+        &:not(.parent),
+        .parent-prop,
+        .parent-prop:after {
+            background-color: $tableLightBgColor;
+        }
+    }
+    &.background-light-grey {
+        &:not(.parent),
+        .parent-prop,
+        .parent-prop:after {
+            background-color: $baseBorderColor;
+        }
+    }
+    &.background-no-color {
+        &:not(.parent),
+        .parent-prop,
+        .parent-prop:after {
+            background-color: transparent;
+        }
+    }
+}
+
+@mixin borderColor {
+    &.border-grey {
+        &:not(.parent),
+        .parent-prop,
+        .parent-prop:after {
+            border: 3px solid $layoutBorderColor;
+        }
+    }
+    &.border-green {
+        &:not(.parent),
+        .parent-prop,
+        .parent-prop:after {
+            border: 3px solid $themeColor;
+        }
+    }
+    &.border-dark-grey {
+        &:not(.parent),
+        .parent-prop,
+        .parent-prop:after {
+            border: 3px solid $tableLightBgColor;
+        }
+    }
+    &.border-light-grey {
+        &:not(.parent),
+        .parent-prop,
+        .parent-prop:after {
+            border: 3px solid $baseBorderColor;
+        }
+    }
+    &.border-no-color {
+        &:not(.parent),
+        .parent-prop,
+        .parent-prop:after {
+            border: 3px solid transparent;
+        }
+    }
+}
+
+@mixin roundedTop {
+    &.rounded-top {
+        &:not(.parent),
+        .parent-prop {
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+        }
+    }
+}
+
+@mixin roundedBottom {
+    &.rounded-bottom {
+        &:not(.parent),
+        .parent-prop {
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+    }
+}
+
+@mixin borderRadius {
+    &.border-radius {
+        &:not(.parent),
+        .parent-prop,
+        .parent-prop:after {
+            border-radius: $spacer;
+        }
+    }
+}
+
+@mixin distribute {
+    &.horizontal {
+        &:not(.parent),
+        .parent-prop {
+            flex-direction: row;
+        }
+    }
+    &.vertical {
+        &:not(.parent),
+        .parent-prop {
+            flex-direction: column;
+        }
+    }
+}
+
+@mixin classesForProps {
+    @include backgroundColor;
+    @include borderColor;
+    @include roundedTop;
+    @include roundedBottom;
+    @include borderRadius;
+    @include distribute;
+}

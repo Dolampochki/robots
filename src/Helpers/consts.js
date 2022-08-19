@@ -1,6 +1,6 @@
 const defaultSettings = {
-    backgroundColor: 'grey',
-    borderColor: 'grey',
+    backgroundColor: 'background-grey',
+    borderColor: 'border-grey',
     roundedTop: false,
     roundedBottom: false,
     borderRadius: false,
@@ -8,17 +8,20 @@ const defaultSettings = {
 }
 
 const propsClasses = {
+    backgroundColor: 'background-color',
+    borderColor: 'border-color',
     roundedTop: 'rounded-top',
     roundedBottom: 'rounded-bottom',
-    borderRadius: 'border-radius'
+    borderRadius: 'border-radius',
+    distribute: 'distribute'
 }
 
 const colors = ['grey', 'green', 'dark-grey', 'light-grey', 'no-color']
 const booleanSelect = [false, true]
 
 const settingsOptions = {
-    backgroundColor: colors,
-    borderColor: colors,
+    backgroundColor: colors.map(c => `background-${c}`),
+    borderColor: colors.map(c => `border-${c}`),
     roundedTop: booleanSelect,
     roundedBottom: booleanSelect,
     borderRadius: booleanSelect,

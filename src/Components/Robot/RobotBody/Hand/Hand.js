@@ -26,10 +26,10 @@ export const Hand = ({ side, handSettings, updateHandSettings }) => {
 
     return (
         <>
-            <div className={classes} onClick={openSettings}>
-                <div className='hand-top'></div>
-                <div className='hand-bottom'></div>
-                <div className='hand-palm'></div>
+            <div className={`${classes} parent`} onClick={openSettings}>
+                <div className='hand-top parent-prop'></div>
+                <div className='hand-bottom parent-prop'></div>
+                <div className='hand-palm parent-prop'></div>
             </div>
             <SettingsPopup 
                 part='hand'

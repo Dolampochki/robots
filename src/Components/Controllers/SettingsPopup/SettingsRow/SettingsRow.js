@@ -1,22 +1,19 @@
 import React from 'react'
 import './SettingsRow.scss'
 
-export const SettingsRow = ({ options, updateProp, value }) => {
+export const SettingsRow = ({ options, propClass, updateProp, selected }) => {
 
     const changeProp = (val) => {
         updateProp(val)
     }
 
     return (
-        <div className='settings-row'>
-            {options.map(option => <input 
-                type='radio' 
-                name='options' 
-                onChange={changeProp} 
-                className={`${option}`} 
-                value={value}
-                key={option} />)}
-        </div>
+        <ul className={`settings-row ${propClass}`}>
+            {options.map(option => <li
+                onClick={() => changeProp(option)} 
+                className={`${typeof option === 'boolean' ? (option ? propClass : '') : option} ${option === selected ? 'selected' : ''}`} 
+                key={option}></li>)}
+        </ul>
     )
 }
 

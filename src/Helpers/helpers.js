@@ -54,8 +54,9 @@ const generateClasses = (part, settings, optional) => {
         settingsForParts[part].forEach(prop => {
             if (prop in settings) {
                 if (typeof settings[prop] === 'string') classes += ` ${settings[prop]}`
-                if (typeof settings[prop] === 'boolean' && settings[prop]) classes =+ ` ${propsClasses[prop]}`
+                if (typeof settings[prop] === 'boolean' && settings[prop]) classes += ` ${propsClasses[prop]}`
             }
+            console.log(prop, classes, propsClasses[prop], typeof settings[prop] === 'boolean')
         })
     }
     return classes

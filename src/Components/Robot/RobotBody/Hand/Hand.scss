@@ -4,6 +4,7 @@
 .hand {
     flex-direction: column;
     margin: 0 $spacer-1;
+    @include classesForProps;
     &-top {
         height: 5rem;
         width: 2rem;
@@ -26,11 +27,12 @@
         &:after {
             @include absolutePseudo;
             left: 0.75rem;
-            bottom: 0;
+            bottom: -3px;
             top: unset;
             height: 1rem;
             width: 1rem;
             background-color: $globalBgColor;
+            border-bottom-color: $globalBgColor!important;
         }
     }
 
