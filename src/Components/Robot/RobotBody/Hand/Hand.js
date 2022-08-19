@@ -3,13 +3,13 @@ import './Hand.scss'
 import SettingsPopup from 'Components/Controllers/SettingsPopup/SettingsPopup'
 import { isSameObject, generateClasses } from 'Helpers/helpers'
 
-export const Hand = ({ side, handSettings, updateHandSettings }) => {
+export const Hand = ({ side, partSettings, updatePartSettings }) => {
     const [isOpenSettings, setIsOpenSettings] = useState(false)
     const [elementWidth, setElementWidth] = useState({})
-    const [settings, setSettings] = useState({ ...handSettings })
+    const [settings, setSettings] = useState({ ...partSettings })
 
     const updateSettings = (updatedSettings) => {
-        updateHandSettings(updatedSettings)
+        updatePartSettings(updatedSettings)
         setIsOpenSettings(false)
     }
 
@@ -19,8 +19,8 @@ export const Hand = ({ side, handSettings, updateHandSettings }) => {
     }
 
     useEffect(() => {
-        if (!isSameObject(handSettings, settings)) setSettings(handSettings)
-    }, [handSettings])
+        if (!isSameObject(partSettings, settings)) setSettings(partSettings)
+    }, [partSettings])
 
     const classes = generateClasses('hand', settings, side)
 

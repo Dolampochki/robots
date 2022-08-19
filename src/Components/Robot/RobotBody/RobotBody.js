@@ -6,13 +6,13 @@ import { defaultSettings } from 'Helpers/consts'
 
 export const RobotBody = () => {
     
-    const [handSettings, setHandSettings] = useState({ ...defaultSettings })
+    const [partSettings, setPartSettings] = useState({ ...defaultSettings })
 
     return (
         <div className='robot-body'>
-            <Hand side='left' handSettings={handSettings} updateHandSettings={(e) => setHandSettings(e)} />
+            <Hand side='left' partSettings={partSettings} updatePartSettings={(e) => setPartSettings(e)} />
             <RobotBodyMiddle />
-            <Hand side='right' handSettings={handSettings} updateHandSettings={(e) => setHandSettings(e)} />
+            <Hand side='right' partSettings={partSettings} updatePartSettings={(e) => setPartSettings(e)} />
         </div>
     )
 }

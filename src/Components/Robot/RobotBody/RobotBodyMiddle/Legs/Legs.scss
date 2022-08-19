@@ -6,26 +6,25 @@
     width: 100%;
     .leg {
         flex-direction: column;
+        @include classesForProps;
+        cursor: pointer;
 
         &-top {
             height: 4rem;
             width: 2rem;
             margin-bottom: $spacer-1;
-            background-color: $layoutBorderColor;
         }
 
         &-bottom {
             height: 4rem;
             width: 2rem;
             margin-bottom: $spacer-1;
-            background-color: $layoutBorderColor;
         }
 
         &-sole {
             height: 2rem;
             width: 3rem;
             margin-bottom: $spacer-1;
-            background-color: $layoutBorderColor;
         }
 
         &.right {

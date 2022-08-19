@@ -4,7 +4,8 @@
 .ear {
     height: 1rem;
     width: 0.5rem;
-    background-color: $layoutBorderColor;
+    @include classesForProps;
+    cursor: pointer;
 
     &.right {
 

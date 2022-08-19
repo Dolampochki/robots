@@ -17,6 +17,7 @@
 @mixin backgroundColor {
     &.background-grey {
         &:not(.parent),
+        &:not(.parent):after,
         .parent-prop,
         .parent-prop:after {
             background-color: $layoutBorderColor;
@@ -24,6 +25,7 @@
     }
     &.background-green {
         &:not(.parent),
+        &:not(.parent):after,
         .parent-prop,
         .parent-prop:after {
             background-color: $themeColor;
@@ -31,6 +33,7 @@
     }
     &.background-dark-grey {
         &:not(.parent),
+        &:not(.parent):after,
         .parent-prop,
         .parent-prop:after {
             background-color: $tableLightBgColor;
@@ -38,6 +41,7 @@
     }
     &.background-light-grey {
         &:not(.parent),
+        &:not(.parent):after,
         .parent-prop,
         .parent-prop:after {
             background-color: $baseBorderColor;
@@ -45,9 +49,10 @@
     }
     &.background-no-color {
         &:not(.parent),
+        &:not(.parent):after,
         .parent-prop,
         .parent-prop:after {
-            background-color: transparent;
+            background-color: $globalBgColor;
         }
     }
 }
@@ -55,6 +60,7 @@
 @mixin borderColor {
     &.border-grey {
         &:not(.parent),
+        &:not(.parent):after,
         .parent-prop,
         .parent-prop:after {
             border: 3px solid $layoutBorderColor;
@@ -62,6 +68,7 @@
     }
     &.border-green {
         &:not(.parent),
+        &:not(.parent):after,
         .parent-prop,
         .parent-prop:after {
             border: 3px solid $themeColor;
@@ -69,6 +76,7 @@
     }
     &.border-dark-grey {
         &:not(.parent),
+        &:not(.parent):after,
         .parent-prop,
         .parent-prop:after {
             border: 3px solid $tableLightBgColor;
@@ -76,6 +84,7 @@
     }
     &.border-light-grey {
         &:not(.parent),
+        &:not(.parent):after,
         .parent-prop,
         .parent-prop:after {
             border: 3px solid $baseBorderColor;
@@ -83,6 +92,7 @@
     }
     &.border-no-color {
         &:not(.parent),
+        &:not(.parent):after,
         .parent-prop,
         .parent-prop:after {
             border: 3px solid transparent;
@@ -113,6 +123,7 @@
 @mixin borderRadius {
     &.border-radius {
         &:not(.parent),
+        &:not(.parent):after,
         .parent-prop,
         .parent-prop:after {
             border-radius: $spacer;

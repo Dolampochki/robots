@@ -1,6 +1,6 @@
 const defaultSettings = {
     backgroundColor: 'background-grey',
-    borderColor: 'border-grey',
+    borderColor: 'border-no-color',
     roundedTop: false,
     roundedBottom: false,
     borderRadius: false,
@@ -31,7 +31,7 @@ const settingsOptions = {
 const relevantForAll = ['backgroundColor', 'borderColor', 'borderRadius']
 const relevantForLarge = ['roundedTop', 'roundedBottom']
 
-const robotParts = ['antennas', 'ear', 'face', 'eye', 'mouth', 'neck', 'hand', 'torso', 'monitor', 'button', 'leg']
+const robotParts = ['antenna', 'ear', 'face', 'eye', 'mouth', 'neck', 'hand', 'torso', 'monitor', 'button', 'leg']
 
 const settingsForParts = {}
 

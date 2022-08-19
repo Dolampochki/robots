@@ -5,17 +5,17 @@
     justify-content: space-around;
     width: 50%;
     .antenna {
-        height: 4rem;
-        width: 0.25rem;
-        background-color: $layoutBorderColor;
+        height: 3rem;
+        width: 0;
+        @include classesForProps;
+        cursor: pointer;
 
         &:after {
             @include absolutePseudo;
-            left: -0.375rem;
+            top: -$spacer;
+            left: -0.5rem;
             height: 1rem;
             width: 1rem;
-            background-color: $layoutBorderColor;
-            border-radius: $border-radius-round;
         }
 
         &.right {

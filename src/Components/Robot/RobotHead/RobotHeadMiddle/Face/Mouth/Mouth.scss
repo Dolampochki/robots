@@ -4,5 +4,6 @@
 .mouth {
     height: 0.5rem;
     width: 2rem;
-    background-color: $baseBorderColor;
+    @include classesForProps;
+    cursor: pointer;
 }
