@@ -25,7 +25,6 @@ export const Face = () => {
 
     const classes = generateClasses('face', settings)
 
-
     return (
         <>
             <div className={classes} onClick={openSettings}>

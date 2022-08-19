@@ -31,15 +31,16 @@ const settingsOptions = {
 const relevantForAll = ['backgroundColor', 'borderColor', 'borderRadius']
 const relevantForLarge = ['roundedTop', 'roundedBottom']
 
-const robotParts = ['antenna', 'ear', 'face', 'eye', 'mouth', 'neck', 'hand', 'torso', 'monitor', 'button', 'leg']
+const robotParts = ['antenna', 'ear', 'face', 'eye', 'mouth', 'neck', 'hand', 'torso', 'monitor', 'buttons', 'leg']
 
 const settingsForParts = {}
 
 robotParts.forEach(part => settingsForParts[part] = relevantForAll)
 
-settingsForParts.button = [...settingsForParts.button, 'distribute']
+settingsForParts.buttons = [...settingsForParts.buttons, 'distribute']
 settingsForParts.face = [...settingsForParts.face, ...relevantForLarge]
 settingsForParts.torso = [...settingsForParts.torso, ...relevantForLarge]
+settingsForParts.monitor = [...settingsForParts.monitor, ...relevantForLarge]
 
 export { 
     defaultSettings,

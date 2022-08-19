@@ -4,5 +4,6 @@
 .monitor {
     height: 3rem;
     width: 5rem;
-    background-color: $baseBorderColor;
+    @include classesForProps;
+    cursor: pointer;
 }

@@ -133,16 +133,10 @@
 
 @mixin distribute {
     &.horizontal {
-        &:not(.parent),
-        .parent-prop {
-            flex-direction: row;
-        }
+        flex-direction: row;
     }
     &.vertical {
-        &:not(.parent),
-        .parent-prop {
-            flex-direction: column;
-        }
+        flex-direction: column;
     }
 }
 

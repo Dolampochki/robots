@@ -7,5 +7,7 @@
     height: 12rem;
     width: 8rem;
     margin-bottom: $spacer-1;
-    background-color: $layoutBorderColor;
+    padding: $spacer-1;
+    @include classesForProps;
+    cursor: pointer;
 }
