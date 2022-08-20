@@ -7,33 +7,25 @@
     left: 0;
     top: 0;
     padding: $spacer;
-    margin-top: $spacer-3;
     background: $globalBgColor;
     box-shadow: $box-shadow-base;
     z-index: 10;
     display: none;
 
-    &:before,
-    &:after {
-        @include absolutePseudo;
-        border-top: none!important;
-        background-color: transparent!important;
+    .settings-popup-arrow {
+        position: fixed;
+        background: $globalBgColor;
+        transform: rotate(45deg);
+        width: $spacer;
+        height: $spacer;
     }
 
-    &:before {
-        left: calc(50% - 8px);
-        border-left: 12px solid transparent;
-        border-right: 12px solid transparent;
-        top: -12px;
-        border-bottom: 12px solid rgba($themeColor, 0.3);
+    &.bottom .settings-popup-arrow {
+        box-shadow: -2px -2px 0 2px rgba($themeColor, 0.3);
     }
 
-    &:after {
-        left: calc(50% - 4px);
-        border-left: 8px solid transparent!important;
-        border-right: 8px solid transparent!important;
-        top: -8px;
-        border-bottom: 8px solid $globalBgColor!important;
+    &.top .settings-popup-arrow {
+        box-shadow: 2px 2px 0 2px rgba($themeColor, 0.3);
     }
 
     &.show {
