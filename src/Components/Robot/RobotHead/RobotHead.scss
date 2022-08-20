@@ -4,4 +4,10 @@
 
 .robot-head {
     flex-direction: column;
+    .neck {
+        height: 0.5rem;
+        width: 2rem;
+        margin-bottom: $spacer-1;
+        @include classesForProps;
+    }
 }

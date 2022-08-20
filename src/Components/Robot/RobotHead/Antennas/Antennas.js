@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import './Antennas.scss'
-import Antenna from './Antenna'
-import { defaultSettings } from 'Helpers/consts'
+import PairPart from 'Components/Robot/RobotParts/PairPart'
+import { defaultSettings, additionalSettingsBorderRadius } from 'Helpers/consts'
 
 export const Antennas = () => {
 
-    const [partSettings, setPartSettings] = useState({ ...defaultSettings, borderRadius: true })
+    const [partSettings, setPartSettings] = useState({ ...defaultSettings, ...additionalSettingsBorderRadius })
     
     return (
         <div className='antennas'>
             {['left', 'right'].map(side => 
-                <Antenna 
+                <PairPart 
+                    part='antenna'
                     side={side} 
                     key={side} 
                     partSettings={partSettings} 

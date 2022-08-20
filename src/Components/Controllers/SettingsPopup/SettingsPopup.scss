@@ -3,9 +3,10 @@
 
 .settings-popup {
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     left: 0;
-    top: $spacer-3;
+    top: 0;
+    margin-top: $spacer-3;
     width: 314px;
     padding: $spacer;
     background: $globalBgColor;

@@ -5,17 +5,25 @@ import './SettingsPopup.scss'
 import { settingsOptions, settingsForParts, propsClasses } from 'Helpers/consts'
 import SettingsRow from './SettingsRow/SettingsRow'
 
-export const SettingsPopup = ({ updateSettings, part, elementWidth, isOpen, settings }) => {
-
-    const style = { left: `${elementWidth / 2 - 157}px` }
+export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side }) => {
     const [currentSettings, setCurrentSettings] = useState({ ...settings })
 
     const done = () => {
         updateSettings(currentSettings)
     }
 
+    const settingsPopupElementId = `settings-popup-${part}${side ? '-' + side : ''}`
+
+    const settingsPopupElement = document.getElementById(settingsPopupElementId)
+
+    const targetElement = settingsPopupElement?.previousSibling
+
+    const targetElementCoords = targetElement ? targetElement.getBoundingClientRect() : { top: 0, left: 0, width: 0 }
+
+    const style = { left: `${targetElementCoords.left + targetElementCoords.width / 2  - 162}px`, top: `${targetElementCoords.top}px` }
+
     return (
-        <div className={`settings-popup ${isOpen ? 'show' : ''}`} style={style}>
+        <div id={settingsPopupElementId} className={`settings-popup ${isOpen ? 'show' : ''}`} style={style}>
             <h2>{capitalizeWord(part)}</h2>
             {settingsForParts[part].map(prop => 
                 <SettingsRow 

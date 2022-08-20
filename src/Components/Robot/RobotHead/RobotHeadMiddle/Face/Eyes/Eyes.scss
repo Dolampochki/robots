@@ -10,13 +10,5 @@
         height: 1rem;
         width: 1rem;
         @include classesForProps;
-        cursor: pointer;
-
-        &.right {
-
-        }
-        &.left {
-            
-        }
     }
 }

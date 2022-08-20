@@ -3,4 +3,45 @@
 
 .robot-body {
     align-items: flex-start;
+    .hand {
+        flex-direction: column;
+        margin: 0 $spacer-1;
+        @include classesForProps;
+        &-top {
+            height: 5rem;
+            width: 2rem;
+            margin-bottom: $spacer-1;
+        }
+    
+        &-bottom {
+            height: 4rem;
+            width: 2rem;
+            margin-bottom: $spacer-1;
+        }
+    
+        &-palm {
+            height: 1.75rem;
+            width: 2.5rem;
+            margin-bottom: $spacer-1;
+            &:after {
+                @include absolutePseudo;
+                left: 6px;
+                bottom: -3px;
+                top: unset;
+                height: 1rem;
+                width: 22px;
+                background-color: $globalBgColor!important;
+                border-bottom-color: $globalBgColor!important;
+            }
+        }
+    
+        &.right {
+            align-items: flex-start;
+        }
+    
+        &.left {
+            align-items: flex-end;
+            
+        }
+    }
 }

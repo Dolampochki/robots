@@ -7,6 +7,9 @@ const defaultSettings = {
     distribute: 'horizontal'
 }
 
+const additionalSettingsLighter = { backgroundColor: 'background-light-grey' }
+const additionalSettingsBorderRadius = { borderRadius: true }
+
 const propsClasses = {
     backgroundColor: 'background-color',
     borderColor: 'border-color',
@@ -46,5 +49,7 @@ export {
     defaultSettings,
     settingsForParts,
     propsClasses,
-    settingsOptions
+    settingsOptions,
+    additionalSettingsLighter,
+    additionalSettingsBorderRadius
 }

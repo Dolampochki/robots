@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import './Eyes.scss'
-import Eye from './Eye'
-import { defaultSettings } from 'Helpers/consts'
+import PairPart from 'Components/Robot/RobotParts/PairPart'
+import { defaultSettings, additionalSettingsLighter, additionalSettingsBorderRadius } from 'Helpers/consts'
 
 export const Eyes = () => {
-    const [partSettings, setPartSettings] = useState({ ...defaultSettings, borderRadius: true, backgroundColor: 'background-light-grey' })
+    const [partSettings, setPartSettings] = useState({ ...defaultSettings, ...additionalSettingsBorderRadius, ...additionalSettingsLighter })
     return (
         <div className='eyes'>
             {['left', 'right'].map(side => 
-                <Eye 
+                <PairPart 
+                    part='eye'
                     side={side} 
                     key={side}
                     partSettings={partSettings} 

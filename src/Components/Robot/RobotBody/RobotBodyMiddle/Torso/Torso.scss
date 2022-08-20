@@ -9,5 +9,21 @@
     margin-bottom: $spacer-1;
     padding: $spacer-1;
     @include classesForProps;
-    cursor: pointer;
+
+    .monitor {
+        height: 3rem;
+        width: 5rem;
+        @include classesForProps;
+    }
+
+    .buttons {
+        width: 100%;
+        justify-content: space-around;
+        @include classesForProps;
+        .button {
+            height: 1rem;
+            width: 1rem;
+            margin: $spacer-1;
+        }
+    }
 }

@@ -3,4 +3,10 @@
 
 .robot-head-middle {
     margin-bottom: $spacer-1;
+
+    .ear {
+        height: 1rem;
+        width: 0.5rem;
+        @include classesForProps;
+    }
 }

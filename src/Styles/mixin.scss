@@ -14,120 +14,62 @@
     content: "";
 }
 
+@mixin setProp($prop, $val) {
+    &:not(.parent),
+    &:after,
+    &.parent > *,
+    & > *:after {
+        #{$prop}: $val;
+    }
+}
+
 @mixin backgroundColor {
-    &.background-grey {
-        &:not(.parent),
-        &:not(.parent):after,
-        .parent-prop,
-        .parent-prop:after {
-            background-color: $layoutBorderColor;
-        }
-    }
-    &.background-green {
-        &:not(.parent),
-        &:not(.parent):after,
-        .parent-prop,
-        .parent-prop:after {
-            background-color: $themeColor;
-        }
-    }
-    &.background-dark-grey {
-        &:not(.parent),
-        &:not(.parent):after,
-        .parent-prop,
-        .parent-prop:after {
-            background-color: $tableLightBgColor;
-        }
-    }
-    &.background-light-grey {
-        &:not(.parent),
-        &:not(.parent):after,
-        .parent-prop,
-        .parent-prop:after {
-            background-color: $baseBorderColor;
-        }
-    }
-    &.background-no-color {
-        &:not(.parent),
-        &:not(.parent):after,
-        .parent-prop,
-        .parent-prop:after {
-            background-color: $globalBgColor;
+    $backgrounds: 
+        "background-grey" $layoutBorderColor, 
+        "background-green" $themeColor, 
+        "background-dark-grey" $tableLightBgColor, 
+        "background-light-grey" $baseBorderColor, 
+        "background-no-color" $globalBgColor;
+
+    @each $class, $color in $backgrounds {
+        &.#{$class} {
+            @include setProp('background-color', $color);
         }
     }
 }
 
 @mixin borderColor {
-    &.border-grey {
-        &:not(.parent),
-        &:not(.parent):after,
-        .parent-prop,
-        .parent-prop:after {
-            border: 3px solid $layoutBorderColor;
-        }
-    }
-    &.border-green {
-        &:not(.parent),
-        &:not(.parent):after,
-        .parent-prop,
-        .parent-prop:after {
-            border: 3px solid $themeColor;
-        }
-    }
-    &.border-dark-grey {
-        &:not(.parent),
-        &:not(.parent):after,
-        .parent-prop,
-        .parent-prop:after {
-            border: 3px solid $tableLightBgColor;
-        }
-    }
-    &.border-light-grey {
-        &:not(.parent),
-        &:not(.parent):after,
-        .parent-prop,
-        .parent-prop:after {
-            border: 3px solid $baseBorderColor;
-        }
-    }
-    &.border-no-color {
-        &:not(.parent),
-        &:not(.parent):after,
-        .parent-prop,
-        .parent-prop:after {
-            border: 3px solid transparent;
+    $borders: 
+        "border-grey" $layoutBorderColor, 
+        "border-green" $themeColor, 
+        "border-dark-grey" $tableLightBgColor, 
+        "border-light-grey" $baseBorderColor, 
+        "border-no-color" transparent;
+
+    @each $class, $color in $borders {
+        &.#{$class} {
+            @include setProp('border', 3px solid $color);
         }
     }
 }
 
 @mixin roundedTop {
     &.rounded-top {
-        &:not(.parent),
-        .parent-prop {
-            border-top-left-radius: 50%;
-            border-top-right-radius: 50%;
-        }
+        @include setProp('border-top-left-radius', 50%);
+        @include setProp('border-top-right-radius', 50%);
     }
 }
 
 @mixin roundedBottom {
     &.rounded-bottom {
-        &:not(.parent),
-        .parent-prop {
-            border-bottom-left-radius: 50%;
-            border-bottom-right-radius: 50%;
-        }
+        @include setProp('border-bottom-left-radius', 50%);
+        @include setProp('border-bottom-right-radius', 50%);
     }
 }
 
 @mixin borderRadius {
     &.border-radius {
-        &:not(.parent),
-        &:not(.parent):after,
-        .parent-prop,
-        .parent-prop:after {
-            border-radius: $spacer;
-        }
+        @include setProp('border-radius', $spacer);
     }
 }
 
@@ -147,4 +89,5 @@
     @include roundedBottom;
     @include borderRadius;
     @include distribute;
+    cursor: pointer;
 }

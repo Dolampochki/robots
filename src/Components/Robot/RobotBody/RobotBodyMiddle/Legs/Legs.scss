@@ -7,7 +7,6 @@
     .leg {
         flex-direction: column;
         @include classesForProps;
-        cursor: pointer;
 
         &-top {
             height: 4rem;
