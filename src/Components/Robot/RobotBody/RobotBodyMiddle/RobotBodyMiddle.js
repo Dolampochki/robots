@@ -1,6 +1,5 @@
 import React from 'react'
 import './RobotBodyMiddle.scss'
-// import Torso from './Torso/Torso'
 import PairContainer from 'Components/Robot/RobotParts/PairContainer'
 import SinglePart from 'Components/Robot/RobotParts/SinglePart'
 import { additionalSettingsBorderRadius, additionalSettingsLighter } from 'Helpers/consts'
@@ -15,7 +14,7 @@ export const RobotBodyMiddle = () => {
 
     const buttonsList = [...Array(3).keys()]
     const buttonsInnerHtml = <>
-        {buttonsList.map(number =>  <div className={`button button-${number}`} key={number}></div>)}
+        {buttonsList.map(number =>  <div className='button' key={number}></div>)}
     </>
 
     const torsoInnerHtml = <>
@@ -31,9 +30,8 @@ export const RobotBodyMiddle = () => {
 
     return (
         <div className='robot-body-middle'>
-            {/* <Torso /> */}
             <SinglePart part='torso' innerHtml={torsoInnerHtml} />
-            <PairContainer part='leg' innerHtml={legInnerHtml} />
+            <PairContainer part='leg' innerHtml={legInnerHtml} parent={true}  />
         </div>
     )
 }

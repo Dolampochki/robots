@@ -1,0 +1,65 @@
+@import "Styles/reset.css";
+@import "Styles/variables.scss";
+@import "Styles/mixin.scss";
+
+body {
+    background-color: $globalBgColor;
+    * {
+        color: #fff;
+        font-family: $font-family-base;
+    }
+}
+
+button { 
+  cursor: pointer;
+}
+
+.round-button {
+    @include flexCenter;
+    width: $spacer-6;
+    height: $spacer-6;
+    margin: $spacer-1;
+    padding: 0;
+    border: 4px solid $tableLightBgColor;
+    border-radius: 50%;
+    background-color: $globalBgColor;
+    color: $themeColor;
+    transition: all $transition-short ease;
+    text-decoration: none;
+    font-size: $font-size-7;
+    line-height: 1;
+
+    i {
+      margin-top: -4px;
+      color: $themeColor;
+    }
+
+    &:hover:not(:disabled) {
+        background-color: $themeColor;
+        border-color: $themeColor;
+        cursor: pointer;
+        color: #fff;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: default;
+    }
+}
+
+.done-button {
+    background-color: $themeColor;
+    height: $spacer-4;
+    margin: 0;
+    padding: 0 $spacer;
+    text-align: center;
+    white-space: nowrap;
+    color: $globalBgColor;
+    &:hover:not(:disabled) {
+        color: $globalBgColor;
+        background-color: lighten($themeColor, 10%);
+    }
+    &:disabled {
+        opacity: 0.5;
+    }
+}

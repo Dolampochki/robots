@@ -14,9 +14,14 @@
     z-index: 10;
     display: none;
 
+    &:before,
+    &:after {
+        @include absolutePseudo;
+        border-top: none!important;
+        background-color: transparent!important;
+    }
+
     &:before {
-        content: "";
-        position: absolute;
         left: calc(50% - 8px);
         border-left: 12px solid transparent;
         border-right: 12px solid transparent;
@@ -25,13 +30,11 @@
     }
 
     &:after {
-        content: "";
-        position: absolute;
         left: calc(50% - 4px);
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
+        border-left: 8px solid transparent!important;
+        border-right: 8px solid transparent!important;
         top: -8px;
-        border-bottom: 8px solid $globalBgColor;
+        border-bottom: 8px solid $globalBgColor!important;
     }
 
     &.show {

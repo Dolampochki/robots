@@ -13,7 +13,7 @@ export const RobotBody = () => {
 
     return (
         <div className='robot-body'>
-            <PairContainer part='hand' innerHtml={handInnerHtml} noContainer={true} />
+            <PairContainer part='hand' innerHtml={handInnerHtml} noContainer={true} parent={true} />
             <RobotBodyMiddle />
         </div>
     )
