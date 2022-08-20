@@ -1,13 +1,14 @@
 import React from 'react'
 import './RobotHead.scss'
-import Antennas from './Antennas/Antennas'
 import RobotHeadMiddle from './RobotHeadMiddle/RobotHeadMiddle'
 import SinglePart from '../RobotParts/SinglePart'
+import PairContainer from '../RobotParts/PairContainer'
+import { additionalSettingsBorderRadius } from 'Helpers/consts'
 
 export const RobotHead = () => {
     return (
         <div className='robot-head'>
-            <Antennas />
+            <PairContainer part='antenna' additionalSettings={additionalSettingsBorderRadius} />
             <RobotHeadMiddle />
             <SinglePart part='neck' />
         </div>

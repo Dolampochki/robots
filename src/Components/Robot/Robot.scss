@@ -8,5 +8,12 @@
 
     .robot {
         flex-direction: column;
+        
+        .left {
+            order: 1;
+        }
+        .right {
+            order: 3;
+        }
     }
 }

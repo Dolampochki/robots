@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './RobotBody.scss'
-import PairPart from '../RobotParts/PairPart'
 import RobotBodyMiddle from './RobotBodyMiddle/RobotBodyMiddle'
-import { defaultSettings } from 'Helpers/consts'
+import PairContainer from '../RobotParts/PairContainer'
 
 export const RobotBody = () => {
-    
-    const [partSettings, setPartSettings] = useState({ ...defaultSettings })
 
     const handInnerHtml = <>
         <div className='hand-top'></div>
@@ -16,9 +13,8 @@ export const RobotBody = () => {
 
     return (
         <div className='robot-body'>
-            <PairPart part='hand' side='left' innerHtml={handInnerHtml} partSettings={partSettings} updatePartSettings={(e) => setPartSettings(e)} />
+            <PairContainer part='hand' innerHtml={handInnerHtml} noContainer={true} />
             <RobotBodyMiddle />
-            <PairPart part='hand' side='right' innerHtml={handInnerHtml} partSettings={partSettings} updatePartSettings={(e) => setPartSettings(e)} />
         </div>
     )
 }

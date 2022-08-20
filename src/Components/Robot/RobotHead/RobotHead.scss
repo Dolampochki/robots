@@ -4,10 +4,39 @@
 
 .robot-head {
     flex-direction: column;
+
     .neck {
         height: 0.5rem;
         width: 2rem;
         margin-bottom: $spacer-1;
         @include classesForProps;
+    }
+
+    .antennas {
+        justify-content: space-around;
+        width: 50%;
+        .antenna {
+            height: 3rem;
+            width: 0;
+            @include classesForProps;
+    
+            &:after {
+                @include absolutePseudo;
+                top: -$spacer;
+                left: -0.5rem;
+                height: 1rem;
+                width: 1rem;
+            }
+    
+            &.right {
+                transform: rotate(45deg);
+                transform-origin: bottom left;
+            }
+    
+            &.left {
+                transform: rotate(-45deg);
+                transform-origin: bottom right;
+            }
+        }
     }
 }

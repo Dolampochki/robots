@@ -3,4 +3,59 @@
 
 .robot-body-middle {
     flex-direction: column;
+    order: 2;
+
+    .torso {
+        flex-direction: column;
+        justify-content: space-around;
+        height: 12rem;
+        width: 8rem;
+        margin-bottom: $spacer-1;
+        padding: $spacer-1;
+        @include classesForProps;
+    
+        .monitor {
+            height: 3rem;
+            width: 5rem;
+            @include classesForProps;
+        }
+    
+        .buttons {
+            width: 100%;
+            justify-content: space-around;
+            @include classesForProps;
+            .button {
+                height: 1rem;
+                width: 1rem;
+                margin: $spacer-1;
+            }
+        }
+    }
+
+    .legs {
+        justify-content: space-around;
+        width: 100%;
+        .leg {
+            flex-direction: column;
+            @include classesForProps;
+    
+            &-top {
+                height: 4rem;
+                width: 2rem;
+                margin-bottom: $spacer-1;
+            }
+    
+            &-bottom {
+                height: 4rem;
+                width: 2rem;
+                margin-bottom: $spacer-1;
+            }
+    
+            &-sole {
+                height: 2rem;
+                width: 3rem;
+                margin-bottom: $spacer-1;
+            }
+        }
+    }
 }

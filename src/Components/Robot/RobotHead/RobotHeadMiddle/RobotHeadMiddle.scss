@@ -4,6 +4,35 @@
 .robot-head-middle {
     margin-bottom: $spacer-1;
 
+
+    .face {
+        flex-direction: column;
+        justify-content: space-around;
+        height: 6rem;
+        width: 6rem;
+        order: 2;
+        @include classesForProps;
+        
+        .eyes {
+            justify-content: space-around;
+            width: 100%;
+            margin-top: $spacer-3;
+        
+            .eye {
+                height: 1rem;
+                width: 1rem;
+                @include classesForProps;
+            }
+        }
+    
+        .mouth {
+            height: 0.5rem;
+            width: 2rem;
+            @include classesForProps;
+        }
+    
+    }
+
     .ear {
         height: 1rem;
         width: 0.5rem;
