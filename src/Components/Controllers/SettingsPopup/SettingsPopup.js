@@ -16,9 +16,9 @@ export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side, nu
     const settingsPopupElementId = `settings-popup-${part}-${number}${side ? '-' + side : ''}`
     const settingsPopupElement = document.getElementById(settingsPopupElementId)
     
-    const getStyle = () => {
+    const getStyles = () => {
         const settingPopupWidth = colors.length * 56 + 32
-        const settingPopupHeight = (settingsForParts[part] ? settingsForParts[part].length : 0) * 60 + 140
+        const settingPopupHeight = settingsForParts[part].props.length * 60 + 140
         const targetElement = settingsPopupElement?.previousSibling
         const targetElementCoords = targetElement ? targetElement.getBoundingClientRect() : { top: 0, left: 0, bottom: 0, width: 0 }
         let direction = 'bottom'
@@ -46,6 +46,7 @@ export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side, nu
                 direction = 'top'
             } 
         }
+
         const popupStyle = { 
             left: `${left}px`, 
             top: `${top}px`, 
@@ -64,7 +65,7 @@ export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side, nu
         return { popupStyle, direction, arrowStyle }
     }
 
-    const { popupStyle, direction, arrowStyle } = getStyle()
+    const { popupStyle, direction, arrowStyle } = getStyles()
     
     useEffect(() => {
         if (!isSameObject(settings, currentSettings)) setCurrentSettings(settings)
@@ -74,7 +75,8 @@ export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side, nu
         const docClickHandler = e => {
             const clickOnPart = e.target.closest(`.number-${number} .${part}${side ? '.' + side : ''}`)
             const clickOnSettingsPopup = e.target.closest(`#${settingsPopupElementId}`)
-            if (!clickOnPart && !clickOnSettingsPopup) {
+            const isDansing = e.target.closest('.dance')
+            if ((!clickOnPart && !clickOnSettingsPopup) || isDansing) {
                 done()
             }
         }
@@ -92,7 +94,7 @@ export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side, nu
             <div className='settings-popup-arrow' style={arrowStyle}></div>
             {isOpen && <>
                 <h2>{capitalizeWord(part)}</h2>
-                {settingsForParts[part].map(prop => 
+                {settingsForParts[part].props.map(prop => 
                     <SettingsRow 
                         key={prop}
                         propClass={propsClasses[prop]}

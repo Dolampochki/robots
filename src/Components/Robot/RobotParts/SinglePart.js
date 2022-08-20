@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import SettingsPopup from 'Components/Controllers/SettingsPopup/SettingsPopup'
 import { generateClasses, isSameObject } from 'Helpers/helpers'
-import { defaultSettings } from 'Helpers/consts'
+import { settingsForParts } from 'Helpers/consts'
 
 export const SinglePart = ({ 
     part, 
     side, 
     innerHtml, 
-    partSettings, 
-    updatePartSettings, 
-    additionalSettings = {}, 
+    pairSettings, 
+    updatePartSettings,
     parent = false,
     number = 0
 }) => {
 
     const [isOpenSettings, setIsOpenSettings] = useState(false)
-    const currentPartSetting = partSettings ? { ...partSettings } : { ...defaultSettings }
-    const [settings, setSettings] = useState({ ...currentPartSetting, ...additionalSettings })
+    const currentPartSetting = pairSettings ? { ...pairSettings } : { ...settingsForParts[part].defaultSettings }
+    const [settings, setSettings] = useState({ ...currentPartSetting })
 
     const openSettings = (e) => {
         let classList = [ ...e.target.classList ]
@@ -27,15 +26,15 @@ export const SinglePart = ({
 
     const updateSettings = (updatedSettings) => {
         if (!isSameObject(updatedSettings, settings)) {
-            partSettings ? updatePartSettings(updatedSettings) : setSettings(updatedSettings)
+            pairSettings ? updatePartSettings(updatedSettings) : setSettings(updatedSettings)
         }
         setIsOpenSettings(false)
     }
 
     useEffect(() => {
-        if (!partSettings) return
-        if (!isSameObject(partSettings, settings)) setSettings(partSettings)
-    }, [partSettings])
+        if (!pairSettings) return
+        if (!isSameObject(pairSettings, settings)) setSettings(pairSettings)
+    }, [pairSettings])
     
     const classes = `${generateClasses(part, settings, side)} ${parent ? 'parent' : ''}`
 

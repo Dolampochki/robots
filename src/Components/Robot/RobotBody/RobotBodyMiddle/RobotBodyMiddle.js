@@ -2,7 +2,6 @@ import React from 'react'
 import './RobotBodyMiddle.scss'
 import PairContainer from 'Components/Robot/RobotParts/PairContainer'
 import SinglePart from 'Components/Robot/RobotParts/SinglePart'
-import { additionalSettingsBorderRadius, additionalSettingsLighter } from 'Helpers/consts'
 
 export const RobotBodyMiddle = ({ number }) => {
 
@@ -18,16 +17,8 @@ export const RobotBodyMiddle = ({ number }) => {
     </>
 
     const torsoInnerHtml = <>
-        <SinglePart 
-            part='monitor' 
-            additionalSettings={additionalSettingsLighter}
-            number={ number } />
-        <SinglePart 
-            part='buttons' 
-            innerHtml={buttonsInnerHtml} 
-            additionalSettings={{ ...additionalSettingsLighter, ...additionalSettingsBorderRadius }}
-            parent={true}
-            number={ number } />
+        <SinglePart part='monitor' number={ number } />
+        <SinglePart part='buttons' innerHtml={buttonsInnerHtml} parent={true} number={ number } />
     </>
 
     return (

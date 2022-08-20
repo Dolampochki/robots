@@ -2,13 +2,12 @@ import React from 'react'
 import './RobotHeadMiddle.scss'
 import SinglePart from 'Components/Robot/RobotParts/SinglePart'
 import PairContainer from 'Components/Robot/RobotParts/PairContainer'
-import { additionalSettingsLighter, additionalSettingsBorderRadius } from 'Helpers/consts'
 
 export const RobotHeadMiddle = ({ number }) => {
 
     const faceInnerHtml = <>
-        <PairContainer part='eye' additionalSettings={{ ...additionalSettingsLighter, ...additionalSettingsBorderRadius }} number={number} />
-        <SinglePart part='mouth' additionalSettings={additionalSettingsLighter} number={number} />
+        <PairContainer part='eye' number={number} />
+        <SinglePart part='mouth' number={number} />
     </>
 
     return (

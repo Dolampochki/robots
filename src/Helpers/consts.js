@@ -7,8 +7,8 @@ const defaultSettings = {
     distribute: 'horizontal'
 }
 
-const additionalSettingsLighter = { backgroundColor: 'background-light-grey' }
-const additionalSettingsBorderRadius = { borderRadius: true }
+const settingsLighter = { backgroundColor: 'background-light-grey' }
+const settingsBorderRadius = { borderRadius: true }
 
 const propsClasses = {
     backgroundColor: 'background-color',
@@ -38,19 +38,22 @@ const robotParts = ['antenna', 'ear', 'face', 'eye', 'mouth', 'neck', 'hand', 't
 
 const settingsForParts = {}
 
-robotParts.forEach(part => settingsForParts[part] = relevantForAll)
+robotParts.forEach(part => settingsForParts[part] = { props: relevantForAll, defaultSettings: { ...defaultSettings } })
 
-settingsForParts.buttons = [...settingsForParts.buttons, 'distribute']
-settingsForParts.face = [...settingsForParts.face, ...relevantForLarge]
-settingsForParts.torso = [...settingsForParts.torso, ...relevantForLarge]
-settingsForParts.monitor = [...settingsForParts.monitor, ...relevantForLarge]
+settingsForParts.buttons.props = [...relevantForAll, 'distribute']
+settingsForParts.face.props = [...relevantForAll, ...relevantForLarge]
+settingsForParts.torso.props = [...relevantForAll, ...relevantForLarge]
+settingsForParts.monitor.props = [...relevantForAll, ...relevantForLarge]
 
-export { 
-    defaultSettings,
+settingsForParts.buttons.defaultSettings = { ...defaultSettings, ...settingsLighter, ...settingsBorderRadius }
+settingsForParts.eye.defaultSettings = { ...defaultSettings, ...settingsLighter, ...settingsBorderRadius }
+settingsForParts.monitor.defaultSettings = { ...defaultSettings, ...settingsLighter }
+settingsForParts.mouth.defaultSettings = { ...defaultSettings, ...settingsLighter }
+settingsForParts.antenna.defaultSettings = { ...defaultSettings, ...settingsBorderRadius }
+
+export {
     settingsForParts,
     propsClasses,
     settingsOptions,
-    additionalSettingsLighter,
-    additionalSettingsBorderRadius,
     colors
 }

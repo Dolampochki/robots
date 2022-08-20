@@ -31,4 +31,8 @@
     &.show {
         display: flex;
     }
+
+    button {
+        margin-top: $spacer-1;
+    }
 }

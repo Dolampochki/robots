@@ -92,6 +92,9 @@
     @include borderRadius;
     @include distribute;
     cursor: pointer;
+    .dance & {
+        cursor: default;
+    }
 }
 
 @keyframes danceTorso {
