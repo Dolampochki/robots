@@ -4,7 +4,7 @@ import PairContainer from 'Components/Robot/RobotParts/PairContainer'
 import SinglePart from 'Components/Robot/RobotParts/SinglePart'
 import { additionalSettingsBorderRadius, additionalSettingsLighter } from 'Helpers/consts'
 
-export const RobotBodyMiddle = () => {
+export const RobotBodyMiddle = ({ number }) => {
 
     const legInnerHtml = <>
         <div className='leg-top'></div>
@@ -14,24 +14,26 @@ export const RobotBodyMiddle = () => {
 
     const buttonsList = [...Array(3).keys()]
     const buttonsInnerHtml = <>
-        {buttonsList.map(number =>  <div className='button' key={number}></div>)}
+        {buttonsList.map(num =>  <div className='button' key={num}></div>)}
     </>
 
     const torsoInnerHtml = <>
         <SinglePart 
             part='monitor' 
-            additionalSettings={additionalSettingsLighter} />
+            additionalSettings={additionalSettingsLighter}
+            number={ number } />
         <SinglePart 
             part='buttons' 
             innerHtml={buttonsInnerHtml} 
             additionalSettings={{ ...additionalSettingsLighter, ...additionalSettingsBorderRadius }}
-            parent={true} />
+            parent={true}
+            number={ number } />
     </>
 
     return (
         <div className='robot-body-middle'>
-            <SinglePart part='torso' innerHtml={torsoInnerHtml} />
-            <PairContainer part='leg' innerHtml={legInnerHtml} parent={true}  />
+            <SinglePart part='torso' innerHtml={torsoInnerHtml} number={ number } />
+            <PairContainer part='leg' innerHtml={legInnerHtml} parent={true} number={ number }  />
         </div>
     )
 }

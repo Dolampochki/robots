@@ -10,7 +10,8 @@ export const SinglePart = ({
     partSettings, 
     updatePartSettings, 
     additionalSettings = {}, 
-    parent = false
+    parent = false,
+    number = 0
 }) => {
 
     const [isOpenSettings, setIsOpenSettings] = useState(false)
@@ -46,7 +47,8 @@ export const SinglePart = ({
                 side={side}
                 isOpen={isOpenSettings}
                 updateSettings={updateSettings}
-                settings={settings} />
+                settings={settings}
+                number={number} />
         </>
     )
 }

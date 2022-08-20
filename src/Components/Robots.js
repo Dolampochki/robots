@@ -21,7 +21,7 @@ export const Robots = () => {
         <div className='container'>
             <RobotsCountController updateCount={updateCount} updateDance={updateDance} />
             <div className={`robots-container ${dance ? 'dance' : ''}`}>
-                {robotsList.map(number => <Robot key={number} />)}
+                {robotsList.map(number => <Robot key={number} number={number} />)}
             </div>
         </div>
     )

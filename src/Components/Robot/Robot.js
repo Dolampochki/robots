@@ -3,12 +3,12 @@ import './Robot.scss'
 import RobotBody from './RobotBody/RobotBody'
 import RobotHead from './RobotHead/RobotHead'
 
-export const Robot = () => {
+export const Robot = ({ number }) => {
     return (
-        <div className='robot-container'>
+        <div className={`robot-container number-${number}`}>
             <div className='robot'>
-                <RobotHead />
-                <RobotBody />
+                <RobotHead number={number} />
+                <RobotBody number={number} />
             </div>
         </div>
     )

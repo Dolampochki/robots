@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import SinglePart from 'Components/Robot/RobotParts/SinglePart'
 import { defaultSettings } from 'Helpers/consts'
 
-export const PairContainer = ({ part, additionalSettings = {}, innerHtml, noContainer, parent = false }) => {
+export const PairContainer = ({ part, additionalSettings = {}, innerHtml, noContainer, parent = false, number }) => {
 
     const [partSettings, setPartSettings] = useState({ ...defaultSettings, ...additionalSettings })
 
@@ -14,7 +14,8 @@ export const PairContainer = ({ part, additionalSettings = {}, innerHtml, noCont
             innerHtml={innerHtml}
             partSettings={partSettings} 
             parent={parent}
-            updatePartSettings={(e) => setPartSettings(e)} />
+            updatePartSettings={(e) => setPartSettings(e)}
+            number={ number } />
     )}</>
 
     return (

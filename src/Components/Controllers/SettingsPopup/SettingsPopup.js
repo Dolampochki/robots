@@ -6,23 +6,18 @@ import { settingsOptions, settingsForParts, propsClasses, colors } from 'Helpers
 import SettingsRow from './SettingsRow/SettingsRow'
 import { isSameObject } from 'Helpers/helpers'
 
-export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side }) => {
+export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side, number }) => {
     const [currentSettings, setCurrentSettings] = useState({ ...settings })
 
     const done = () => {
         updateSettings(currentSettings)
     }
-
+    console.log(number)
     const settingPopupWidth = colors.length * 56 + 32
-
-    const settingsPopupElementId = `settings-popup-${part}${side ? '-' + side : ''}`
-
+    const settingsPopupElementId = `settings-popup-${part}-${number}${side ? '-' + side : ''}`
     const settingsPopupElement = document.getElementById(settingsPopupElementId)
-
     const targetElement = settingsPopupElement?.previousSibling
-
     const targetElementCoords = targetElement ? targetElement.getBoundingClientRect() : { top: 0, left: 0, width: 0 }
-
     const style = { left: `${targetElementCoords.left + targetElementCoords.width / 2  - settingPopupWidth / 2 - 4}px`, top: `${targetElementCoords.top}px`, width: `${settingPopupWidth}px` }
     
     useEffect(() => {
@@ -31,7 +26,7 @@ export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side }) 
 
     useEffect(() => {
         const docClickHandler = e => {
-            const clickOnPart = e.target.closest(`.${part}${side ? '.' + side : ''}`)
+            const clickOnPart = e.target.closest(`.number-${number} .${part}${side ? '.' + side : ''}`)
             const clickOnSettingsPopup = e.target.closest(`#${settingsPopupElementId}`)
             if (!clickOnPart && !clickOnSettingsPopup) {
                 done()

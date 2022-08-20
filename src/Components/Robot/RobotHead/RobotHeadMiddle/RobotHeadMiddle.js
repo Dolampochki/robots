@@ -4,17 +4,17 @@ import SinglePart from 'Components/Robot/RobotParts/SinglePart'
 import PairContainer from 'Components/Robot/RobotParts/PairContainer'
 import { additionalSettingsLighter, additionalSettingsBorderRadius } from 'Helpers/consts'
 
-export const RobotHeadMiddle = () => {
+export const RobotHeadMiddle = ({ number }) => {
 
     const faceInnerHtml = <>
-        <PairContainer part='eye' additionalSettings={{ ...additionalSettingsLighter, ...additionalSettingsBorderRadius }} />
-        <SinglePart part='mouth' additionalSettings={additionalSettingsLighter} />
+        <PairContainer part='eye' additionalSettings={{ ...additionalSettingsLighter, ...additionalSettingsBorderRadius }} number={number} />
+        <SinglePart part='mouth' additionalSettings={additionalSettingsLighter} number={number} />
     </>
 
     return (
         <div className='robot-head-middle'>
-            <PairContainer part='ear' noContainer={true} />
-            <SinglePart part='face' innerHtml={faceInnerHtml} />
+            <PairContainer part='ear' noContainer={true} number={number} />
+            <SinglePart part='face' innerHtml={faceInnerHtml} number={number} />
         </div>
     )
 }

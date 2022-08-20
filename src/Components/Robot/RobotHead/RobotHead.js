@@ -5,12 +5,12 @@ import SinglePart from '../RobotParts/SinglePart'
 import PairContainer from '../RobotParts/PairContainer'
 import { additionalSettingsBorderRadius } from 'Helpers/consts'
 
-export const RobotHead = () => {
+export const RobotHead = ({ number }) => {
     return (
         <div className='robot-head'>
-            <PairContainer part='antenna' additionalSettings={additionalSettingsBorderRadius} />
-            <RobotHeadMiddle />
-            <SinglePart part='neck' />
+            <PairContainer part='antenna' additionalSettings={additionalSettingsBorderRadius} number={number} />
+            <RobotHeadMiddle number={number} />
+            <SinglePart part='neck' number={number} />
         </div>
     )
 }
