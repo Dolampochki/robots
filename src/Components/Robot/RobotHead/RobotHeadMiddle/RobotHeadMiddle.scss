@@ -4,7 +4,6 @@
 .robot-head-middle {
     margin-bottom: $spacer-1;
 
-
     .face {
         flex-direction: column;
         justify-content: space-around;
@@ -22,6 +21,16 @@
                 height: 1rem;
                 width: 1rem;
                 @include classesForProps;
+
+
+                .dance & {
+                    animation: danceEye $transition-dance;
+                    animation-iteration-count: infinite;
+                }
+
+                &.right {
+                    animation-delay: $transition-dance / 2;
+                }
             }
         }
     
@@ -29,6 +38,11 @@
             height: 0.5rem;
             width: 2rem;
             @include classesForProps;
+            transition: all $transition-long ease;
+
+            .dance & {
+                transform: translate(0, -8px) scale(1.5, 1)
+            }
         }
     
     }
@@ -37,5 +51,10 @@
         height: 1rem;
         width: 0.5rem;
         @include classesForProps;
+
+        .dance & {
+            animation: danceEar $transition-dance;
+            animation-iteration-count: infinite;
+        }
     }
 }

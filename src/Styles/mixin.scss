@@ -27,6 +27,7 @@
     $backgrounds: 
         "background-grey" $layoutBorderColor, 
         "background-green" $themeColor, 
+        "background-orange" $warningColor, 
         "background-dark-grey" $tableLightBgColor, 
         "background-light-grey" $baseBorderColor, 
         "background-no-color" $globalBgColor;
@@ -42,6 +43,7 @@
     $borders: 
         "border-grey" $layoutBorderColor, 
         "border-green" $themeColor, 
+        "border-orange" $warningColor, 
         "border-dark-grey" $tableLightBgColor, 
         "border-light-grey" $baseBorderColor, 
         "border-no-color" transparent;
@@ -91,3 +93,91 @@
     @include distribute;
     cursor: pointer;
 }
+
+@keyframes danceTorso {
+    0% { transform: translate(0, 0) rotate(0); }
+    25% { transform: translate(16px, 0) rotate(-8deg); }
+    50% { transform: translate(0, 0) rotate(0); }
+    75% { transform: translate(-16px, 0) rotate(8deg); }
+}
+
+@keyframes danceHandLeft {
+    0% { transform: translate(0, 0) rotate(0); }
+    25% { transform: translate(-106px, -90px) rotate(90deg); }
+    50% { transform: translate(0, 0) rotate(0); }
+    75% { transform: translate(-30px, -30px) rotate(10deg); }
+}
+
+@keyframes danceHandRight {
+    0% { transform: translate(0, 0) rotate(0); }
+    25% { transform: translate(-106px, -90px) rotate(90deg); }
+    50% { transform: translate(0, 0) rotate(0); }
+    75% { transform: translate(-30px, -30px) rotate(10deg); }
+}
+
+@keyframes danceLeg {
+    0% { transform: translate(0, 0) rotate(0); }
+    25% { transform: translate(20px, 0) rotate(8deg); }
+    50% { transform: translate(0, 0) rotate(0); }
+    75% { transform: translate(-20px, 0) rotate(-8deg); }
+}
+
+@keyframes danceHead {
+    0% { transform: translate(0, 0) rotate(0); }
+    25% { transform: translate(20px, 0) rotate(0); }
+    50% { transform: translate(0, 0) rotate(0); }
+    75% { transform: translate(-20px, 0) rotate(0); }
+}
+
+@keyframes danceNeck {
+    0% { transform: translate(0, 0) rotate(0); }
+    25% { transform: translate(-8px, 0) rotate(0); }
+    50% { transform: translate(0, 0) rotate(0); }
+    75% { transform: translate(8px, 0) rotate(0); }
+}
+
+@keyframes danceAntennaLeft {
+    0% { transform: translate(0, 0) rotate(-45deg); }
+    25% { transform: translate(-10px, 0) rotate(-60deg); }
+    50% { transform: translate(0, 0) rotate(-45deg); }
+    75% { transform: translate(8px, 0) rotate(-30deg); }
+}
+
+@keyframes danceAntennaRight {
+    0% { transform: translate(0, 0) rotate(45deg); }
+    25% { transform: translate(10px, 0) rotate(60deg); }
+    50% { transform: translate(0, 0) rotate(45deg); }
+    75% { transform: translate(-8px, 0) rotate(30deg); }
+}
+
+@keyframes danceEar {
+    0% { transform: translate(0, 0) rotate(0); }
+    25% { transform: translate(0, -15px) rotate(0); }
+    50% { transform: translate(0, 0) rotate(0); }
+    75% { transform: translate(0, -15px) rotate(0); }
+}
+
+@keyframes danceEye {
+    0% { transform: translate(0, 0) scale(1, 1); }
+    25% { transform: translate(0, -3px) scale(1, 0.1); }
+    50% { transform: translate(0, 0) scale(1, 1); }
+    50% { transform: translate(0, 0) scale(1, 1); }
+}
+
+@keyframes danceMonitor {
+    0% { opacity: 1; transform: scale(1, 1); }
+    10% { opacity: 0.2; transform: scale(1, 0.5); }
+    20% { opacity: 1; transform: scale(1, 1); }
+    40% { opacity: 0.4; transform: scale(1, 0.1); }
+    50% { opacity: 0.5; transform: scale(1.5, 0.1); }
+    60% { opacity: 0; transform: scale(0.1, 0.1); }
+    99% { opacity: 0; transform: scale(0.1, 0.1); }
+    100% { opacity: 1; transform: scale(1, 1); }
+}
+
+@keyframes danceButton {
+    0% { opacity: 1; transform: scale(1, 1); }
+    10% { opacity: 1; transform: scale(0.1, 0.1); }
+    30% { opacity: 1; transform: scale(1, 1); }
+}
+

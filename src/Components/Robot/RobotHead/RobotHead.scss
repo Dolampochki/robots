@@ -5,11 +5,21 @@
 .robot-head {
     flex-direction: column;
 
+    .dance & {
+        animation: danceHead $transition-dance;
+        animation-iteration-count: infinite;
+    }
+
     .neck {
         height: 0.5rem;
         width: 2rem;
         margin-bottom: $spacer-1;
         @include classesForProps;
+
+        .dance & {
+            animation: danceNeck $transition-dance;
+            animation-iteration-count: infinite;
+        }
     }
 
     .antennas {
@@ -31,11 +41,21 @@
             &.right {
                 transform: rotate(45deg);
                 transform-origin: bottom left;
+
+                .dance & {
+                    animation: danceAntennaRight $transition-dance;
+                    animation-iteration-count: infinite;
+                }
             }
     
             &.left {
                 transform: rotate(-45deg);
                 transform-origin: bottom right;
+
+                .dance & {
+                    animation: danceAntennaLeft $transition-dance;
+                    animation-iteration-count: infinite;
+                }
             }
         }
     }

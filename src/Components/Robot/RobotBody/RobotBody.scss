@@ -7,6 +7,7 @@
         flex-direction: column;
         margin: 0 $spacer-1;
         @include classesForProps;
+        z-index: 2;
         &-top {
             height: 5rem;
             width: 2rem;
@@ -37,11 +38,20 @@
     
         &.right {
             align-items: flex-start;
+
+            .dance & {
+                animation: danceHandRight $transition-dance;
+                animation-iteration-count: infinite;
+            }
         }
     
         &.left {
             align-items: flex-end;
-            
+
+            .dance & {
+                animation: danceHandLeft $transition-dance;
+                animation-iteration-count: infinite;
+            }
         }
     }
 }

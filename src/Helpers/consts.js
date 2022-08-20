@@ -19,7 +19,7 @@ const propsClasses = {
     distribute: 'distribute'
 }
 
-const colors = ['grey', 'green', 'dark-grey', 'light-grey', 'no-color']
+const colors = ['grey', 'green', 'orange', 'dark-grey', 'light-grey', 'no-color']
 const booleanSelect = [false, true]
 
 const settingsOptions = {
@@ -51,5 +51,6 @@ export {
     propsClasses,
     settingsOptions,
     additionalSettingsLighter,
-    additionalSettingsBorderRadius
+    additionalSettingsBorderRadius,
+    colors
 }

@@ -35,6 +35,49 @@
         }
     }
 
+    &.distribute {
+        * {
+            position: relative;
+            &:before,
+            &:after {
+                @include absolutePseudo;
+                width: $spacer-1;
+                height: $spacer-1;
+                background-color: $layoutBorderColor;
+            }
+        }
+        .horizontal {
+            &:before,
+            &:after {
+                top: $spacer;
+            }
+
+            &:before {
+                left: $spacer-1;
+            }
+
+            &:after {
+                left: unset;
+                right: $spacer-1;
+            }
+        }
+        .vertical {
+            &:before,
+            &:after {
+                left: $spacer;
+            }
+
+            &:before {
+                top: $spacer-1;
+            }
+
+            &:after {
+                top: unset;
+                bottom: $spacer-1;
+            }
+        }
+    }
+
 
     li {
         width: $spacer-5;

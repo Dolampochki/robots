@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { capitalizeWord } from 'Helpers/helpers'
 import './SettingsPopup.scss'
-import { settingsOptions, settingsForParts, propsClasses } from 'Helpers/consts'
+import { settingsOptions, settingsForParts, propsClasses, colors } from 'Helpers/consts'
 import SettingsRow from './SettingsRow/SettingsRow'
 import { isSameObject } from 'Helpers/helpers'
 
@@ -13,6 +13,8 @@ export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side }) 
         updateSettings(currentSettings)
     }
 
+    const settingPopupWidth = colors.length * 56 + 32
+
     const settingsPopupElementId = `settings-popup-${part}${side ? '-' + side : ''}`
 
     const settingsPopupElement = document.getElementById(settingsPopupElementId)
@@ -21,7 +23,7 @@ export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side }) 
 
     const targetElementCoords = targetElement ? targetElement.getBoundingClientRect() : { top: 0, left: 0, width: 0 }
 
-    const style = { left: `${targetElementCoords.left + targetElementCoords.width / 2  - 162}px`, top: `${targetElementCoords.top}px` }
+    const style = { left: `${targetElementCoords.left + targetElementCoords.width / 2  - settingPopupWidth / 2 - 4}px`, top: `${targetElementCoords.top}px`, width: `${settingPopupWidth}px` }
     
     useEffect(() => {
         if (!isSameObject(settings, currentSettings)) setCurrentSettings(settings)
