@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SettingsPopup from 'Components/Controllers/SettingsPopup/SettingsPopup'
 import { generateClasses, isSameObject } from 'Helpers/helpers'
-import { settingsForParts } from 'Helpers/consts'
+import { partsSettings } from 'Helpers/consts'
 
 export const SinglePart = ({ 
     part, 
@@ -14,7 +14,7 @@ export const SinglePart = ({
 }) => {
 
     const [isOpenSettings, setIsOpenSettings] = useState(false)
-    const [settings, setSettings] = useState(pairSettings ? { ...pairSettings } : { ...settingsForParts[part].defaultSettings })
+    const [settings, setSettings] = useState(pairSettings ? { ...pairSettings } : { ...partsSettings[part].defaultSettings })
 
     const openSettings = (e) => {
         let classList = [ ...e.target.classList ]

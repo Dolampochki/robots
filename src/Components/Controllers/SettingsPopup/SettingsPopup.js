@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { capitalizeWord } from 'Helpers/helpers'
 import './SettingsPopup.scss'
-import { settingsOptions, settingsForParts, propsClasses, colors } from 'Helpers/consts'
+import { settingsOptions, partsSettings, propsClasses, colors } from 'Helpers/consts'
 import SettingsRow from './SettingsRow/SettingsRow'
 import { isSameObject } from 'Helpers/helpers'
 
@@ -18,7 +18,7 @@ export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side, nu
     
     const getStyles = () => {
         const settingPopupWidth = colors.length * 56 + 32
-        const settingPopupHeight = settingsForParts[part].props.length * 60 + 140
+        const settingPopupHeight = partsSettings[part].props.length * 60 + 140
         const targetElement = settingsPopupElement?.previousSibling
         const targetElementCoords = targetElement ? targetElement.getBoundingClientRect() : { top: 0, left: 0, bottom: 0, width: 0 }
         let direction = 'bottom'
@@ -94,7 +94,7 @@ export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side, nu
             <div className='settings-popup-arrow' style={arrowStyle}></div>
             {isOpen && <>
                 <h2>{capitalizeWord(part)}</h2>
-                {settingsForParts[part].props.map(prop => 
+                {partsSettings[part].props.map(prop => 
                     <SettingsRow 
                         key={prop}
                         propClass={propsClasses[prop]}

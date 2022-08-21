@@ -92,82 +92,79 @@
     @include borderRadius;
     @include distribute;
     cursor: pointer;
+}
+
+@mixin partAnimation($part) {
     .dance & {
-        cursor: default;
+        animation: #{$part} $transition-dance;
+        animation-iteration-count: infinite;
     }
 }
 
-@keyframes danceTorso {
+@keyframes torso {
     0% { transform: translate(0, 0) rotate(0); }
     25% { transform: translate(16px, 0) rotate(-8deg); }
     50% { transform: translate(0, 0) rotate(0); }
     75% { transform: translate(-16px, 0) rotate(8deg); }
 }
 
-@keyframes danceHandLeft {
+@keyframes hand {
     0% { transform: translate(0, 0) rotate(0); }
     25% { transform: translate(-106px, -90px) rotate(90deg); }
     50% { transform: translate(0, 0) rotate(0); }
     75% { transform: translate(-30px, -30px) rotate(10deg); }
 }
 
-@keyframes danceHandRight {
-    0% { transform: translate(0, 0) rotate(0); }
-    25% { transform: translate(-106px, -90px) rotate(90deg); }
-    50% { transform: translate(0, 0) rotate(0); }
-    75% { transform: translate(-30px, -30px) rotate(10deg); }
-}
-
-@keyframes danceLeg {
+@keyframes leg {
     0% { transform: translate(0, 0) rotate(0); }
     25% { transform: translate(20px, 0) rotate(8deg); }
     50% { transform: translate(0, 0) rotate(0); }
     75% { transform: translate(-20px, 0) rotate(-8deg); }
 }
 
-@keyframes danceHead {
+@keyframes robot-head {
     0% { transform: translate(0, 0) rotate(0); }
     25% { transform: translate(20px, 0) rotate(0); }
     50% { transform: translate(0, 0) rotate(0); }
     75% { transform: translate(-20px, 0) rotate(0); }
 }
 
-@keyframes danceNeck {
+@keyframes neck {
     0% { transform: translate(0, 0) rotate(0); }
     25% { transform: translate(-8px, 0) rotate(0); }
     50% { transform: translate(0, 0) rotate(0); }
     75% { transform: translate(8px, 0) rotate(0); }
 }
 
-@keyframes danceAntennaLeft {
+@keyframes antenna-left {
     0% { transform: translate(0, 0) rotate(-45deg); }
     25% { transform: translate(-10px, 0) rotate(-60deg); }
     50% { transform: translate(0, 0) rotate(-45deg); }
     75% { transform: translate(8px, 0) rotate(-30deg); }
 }
 
-@keyframes danceAntennaRight {
+@keyframes antenna-right {
     0% { transform: translate(0, 0) rotate(45deg); }
     25% { transform: translate(10px, 0) rotate(60deg); }
     50% { transform: translate(0, 0) rotate(45deg); }
     75% { transform: translate(-8px, 0) rotate(30deg); }
 }
 
-@keyframes danceEar {
+@keyframes ear {
     0% { transform: translate(0, 0) rotate(0); }
     25% { transform: translate(0, -15px) rotate(0); }
     50% { transform: translate(0, 0) rotate(0); }
     75% { transform: translate(0, -15px) rotate(0); }
 }
 
-@keyframes danceEye {
+@keyframes eye {
     0% { transform: translate(0, 0) scale(1, 1); }
     25% { transform: translate(0, -3px) scale(1, 0.1); }
     50% { transform: translate(0, 0) scale(1, 1); }
     50% { transform: translate(0, 0) scale(1, 1); }
 }
 
-@keyframes danceMonitor {
+@keyframes monitor {
     0% { opacity: 1; transform: scale(1, 1); }
     10% { opacity: 0.2; transform: scale(1, 0.5); }
     20% { opacity: 1; transform: scale(1, 1); }
@@ -178,7 +175,7 @@
     100% { opacity: 1; transform: scale(1, 1); }
 }
 
-@keyframes danceButton {
+@keyframes button {
     0% { opacity: 1; transform: scale(1, 1); }
     10% { opacity: 1; transform: scale(0.1, 0.1); }
     30% { opacity: 1; transform: scale(1, 1); }

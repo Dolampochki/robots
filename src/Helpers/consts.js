@@ -7,8 +7,8 @@ const defaultSettings = {
     distribute: 'horizontal'
 }
 
-const settingsLighter = { backgroundColor: 'background-light-grey' }
-const settingsBorderRadius = { borderRadius: true }
+const backgroundColorLight = { backgroundColor: 'background-light-grey' }
+const borderRadius = { borderRadius: true }
 
 const propsClasses = {
     backgroundColor: 'background-color',
@@ -20,39 +20,42 @@ const propsClasses = {
 }
 
 const colors = ['grey', 'green', 'orange', 'dark-grey', 'light-grey', 'no-color']
-const booleanSelect = [false, true]
+const booleans = [false, true]
 
 const settingsOptions = {
     backgroundColor: colors.map(c => `background-${c}`),
     borderColor: colors.map(c => `border-${c}`),
-    roundedTop: booleanSelect,
-    roundedBottom: booleanSelect,
-    borderRadius: booleanSelect,
+    roundedTop: booleans,
+    roundedBottom: booleans,
+    borderRadius: booleans,
     distribute: ['horizontal', 'vertical']
 }
 
-const relevantForAll = ['backgroundColor', 'borderColor', 'borderRadius']
-const relevantForLarge = ['roundedTop', 'roundedBottom']
+const allPartsProps = ['backgroundColor', 'borderColor', 'borderRadius']
+const largePartsProps = ['roundedTop', 'roundedBottom']
 
-const robotParts = ['antenna', 'ear', 'face', 'eye', 'mouth', 'neck', 'hand', 'torso', 'monitor', 'buttons', 'leg']
+const parts = ['antenna', 'ear', 'face', 'eye', 'mouth', 'neck', 'hand', 'torso', 'monitor', 'buttons', 'leg']
 
-const settingsForParts = {}
+const partsSettings = {}
 
-robotParts.forEach(part => settingsForParts[part] = { props: relevantForAll, defaultSettings: { ...defaultSettings } })
+parts.forEach(part => partsSettings[part] = { props: allPartsProps, defaultSettings: { ...defaultSettings } })
 
-settingsForParts.buttons.props = [...relevantForAll, 'distribute']
-settingsForParts.face.props = [...relevantForAll, ...relevantForLarge]
-settingsForParts.torso.props = [...relevantForAll, ...relevantForLarge]
-settingsForParts.monitor.props = [...relevantForAll, ...relevantForLarge]
+const allLargePartsProps = [...allPartsProps, ...largePartsProps]
+partsSettings.face.props = allLargePartsProps
+partsSettings.torso.props = allLargePartsProps
+partsSettings.monitor.props = allLargePartsProps
+partsSettings.buttons.props = [...allPartsProps, 'distribute']
 
-settingsForParts.buttons.defaultSettings = { ...defaultSettings, ...settingsLighter, ...settingsBorderRadius }
-settingsForParts.eye.defaultSettings = { ...defaultSettings, ...settingsLighter, ...settingsBorderRadius }
-settingsForParts.monitor.defaultSettings = { ...defaultSettings, ...settingsLighter }
-settingsForParts.mouth.defaultSettings = { ...defaultSettings, ...settingsLighter }
-settingsForParts.antenna.defaultSettings = { ...defaultSettings, ...settingsBorderRadius }
+const lightSettings = { ...defaultSettings, ...backgroundColorLight }
+const lightRoundedSettings = { ...lightSettings, ...borderRadius }
+partsSettings.buttons.defaultSettings = lightRoundedSettings
+partsSettings.eye.defaultSettings = lightRoundedSettings
+partsSettings.monitor.defaultSettings = lightSettings
+partsSettings.mouth.defaultSettings = lightSettings
+partsSettings.antenna.defaultSettings = { ...defaultSettings, ...borderRadius }
 
 export {
-    settingsForParts,
+    partsSettings,
     propsClasses,
     settingsOptions,
     colors
