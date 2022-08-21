@@ -1,235 +1,232 @@
 @import "Styles/variables.scss";
 @import "Styles/mixin.scss";
 
-.robot-container {
+
+
+.robot {
+    flex-direction: column;
+    flex-grow: 1;
+
+    // order
+    .left {
+        order: 1;
+    }
+
+    .right {
+        order: 3;
+    }
+
+    &-body-middle,
+    .face {
+        order: 2;
+    }
+
+    // margin-bottom
+    $marginBottomParts: 'robot-head-middle', 'neck', 'hand > *', 'torso', 'leg > *';
+    @each $part in $marginBottomParts {
+        .#{$part} {
+            margin-bottom: $spacer-1;
+        }
+    }
+
+    // distribute 
+    $flexColumnParts: 'face', 'hand', 'robot-body-middle', 'torso', 'leg', 'robot-head';
+    @each $part in $flexColumnParts {
+        .#{$part} {
+            flex-direction: column;
+        }
+    }
+
+    $spaceAroundParts: 'antennas', 'face', 'eyes', 'buttons', 'torso', 'legs';
+    @each $part in $spaceAroundParts {
+        .#{$part} {
+            justify-content: space-around;
+        }
+    }
+
+    // props classes
+    $propsParts: 'antenna', 'ear', 'face', 'eye', 'mouth', 'neck', 'hand', 'torso', 'monitor', 'buttons', 'leg';
+    @each $part in $propsParts {
+        .#{$part} {
+            @include classesForProps;
+        }
+    }
+
+    // dancing
+
+    .dance & * {
+        cursor: default
+    }
+
+    $dancingParts: 'ear', 'robot-head', 'eye', 'neck', 'hand', 'torso', 'monitor', 'button', 'leg';
+    @each $part in $dancingParts {
+        .#{$part} {
+            @include partAnimation($part);
+        }
+    }
+
+    // sizes and special props
+
+    &-head {
     
-    height: 100%;
-    width: 100%;
-
-    .robot {
-        flex-direction: column;
-
-        // order
-        .left {
-            order: 1;
-        }
-
-        .right {
-            order: 3;
-        }
-
-        &-body-middle,
-        .face {
-            order: 2;
-        }
-
-        // margin-bottom
-        $marginBottomParts: 'robot-head-middle', 'neck', 'hand > *', 'torso', 'leg > *';
-        @each $part in $marginBottomParts {
-            .#{$part} {
-                margin-bottom: $spacer-1;
-            }
-        }
-
-        // distribute 
-        $flexColumnParts: 'face', 'hand', 'robot-body-middle', 'torso', 'leg', 'robot-head';
-        @each $part in $flexColumnParts {
-            .#{$part} {
-                flex-direction: column;
-            }
-        }
-
-        $spaceAroundParts: 'antennas', 'face', 'eyes', 'buttons', 'torso', 'legs';
-        @each $part in $spaceAroundParts {
-            .#{$part} {
-                justify-content: space-around;
-            }
-        }
-
-        // props classes
-        $propsParts: 'antenna', 'ear', 'face', 'eye', 'mouth', 'neck', 'hand', 'torso', 'monitor', 'buttons', 'leg';
-        @each $part in $propsParts {
-            .#{$part} {
-                @include classesForProps;
-            }
-        }
-
-        // dancing
-
-        .dance & * {
-            cursor: default
-        }
-
-        $dancingParts: 'ear', 'robot-head', 'eye', 'neck', 'hand', 'torso', 'monitor', 'button', 'leg';
-        @each $part in $dancingParts {
-            .#{$part} {
-                @include partAnimation($part);
-            }
-        }
-
-        // sizes and special props
-
-        &-head {
+        .antennas {
+            width: 50%;
+            .antenna {
+                height: 3rem;
+                width: 0;
         
-            .antennas {
-                width: 50%;
-                .antenna {
-                    height: 3rem;
-                    width: 0;
-            
-                    &:after {
-                        @include absolutePseudo;
-                        top: -$spacer;
-                        left: -0.5rem;
+                &:after {
+                    @include absolutePseudo;
+                    top: -$spacer;
+                    left: -0.5rem;
+                    height: 1rem;
+                    width: 1rem;
+                }
+        
+                &.right {
+                    transform: rotate(45deg);
+                    transform-origin: bottom left;
+                    @include partAnimation('antenna-right');
+                }
+        
+                &.left {
+                    transform: rotate(-45deg);
+                    transform-origin: bottom right;
+                    @include partAnimation('antenna-left');
+                }
+            }
+        }
+
+        &-middle {
+        
+            .face {
+                height: 6rem;
+                width: 6rem;
+                
+                .eyes {
+                    width: 100%;
+                    margin-top: $spacer-3;
+                
+                    .eye {
                         height: 1rem;
                         width: 1rem;
-                    }
-            
-                    &.right {
-                        transform: rotate(45deg);
-                        transform-origin: bottom left;
-                        @include partAnimation('antenna-right');
-                    }
-            
-                    &.left {
-                        transform: rotate(-45deg);
-                        transform-origin: bottom right;
-                        @include partAnimation('antenna-left');
+        
+                        &.right {
+                            animation-delay: $transition-dance * 0.5;
+                        }
                     }
                 }
+            
+                .mouth {
+                    height: 0.5rem;
+                    width: 2rem;
+                    transition: all $transition-long ease;
+        
+                    .dance & {
+                        transform: translate(0, -8px) scale(1.5, 1)
+                    }
+                }
+            
             }
+        
+            .ear {
+                height: 1rem;
+                width: 0.5rem;
+            }
+        }
+    
+        .neck {
+            height: 0.5rem;
+            width: 2rem;
+        }
+    }
 
-            &-middle {
-            
-                .face {
-                    height: 6rem;
-                    width: 6rem;
-                    
-                    .eyes {
-                        width: 100%;
-                        margin-top: $spacer-3;
-                    
-                        .eye {
-                            height: 1rem;
-                            width: 1rem;
-            
-                            &.right {
-                                animation-delay: $transition-dance * 0.5;
-                            }
-                        }
-                    }
-                
-                    .mouth {
-                        height: 0.5rem;
-                        width: 2rem;
-                        transition: all $transition-long ease;
-            
-                        .dance & {
-                            transform: translate(0, -8px) scale(1.5, 1)
-                        }
-                    }
-                
-                }
-            
-                .ear {
+    &-body {
+        align-items: flex-start;
+        .hand {
+            margin: 0 $spacer-1;
+            z-index: 2;
+            &-top {
+                height: 5rem;
+                width: 2rem;
+            }
+        
+            &-bottom {
+                height: 4rem;
+                width: 2rem;
+            }
+        
+            &-palm {
+                height: 1.75rem;
+                width: 2.5rem;
+                &:after {
+                    @include absolutePseudo;
+                    left: 6px;
+                    bottom: -3px;
+                    top: unset;
                     height: 1rem;
-                    width: 0.5rem;
+                    width: 22px;
+                    background-color: $globalBgColor!important;
+                    border-bottom-color: $globalBgColor!important;
                 }
             }
         
-            .neck {
-                height: 0.5rem;
-                width: 2rem;
+            &.right {
+                align-items: flex-start;
+            }
+        
+            &.left {
+                align-items: flex-end;
             }
         }
 
-        &-body {
-            align-items: flex-start;
-            .hand {
-                margin: 0 $spacer-1;
-                z-index: 2;
-                &-top {
-                    height: 5rem;
-                    width: 2rem;
+        &-middle {
+        
+            .torso {
+                height: 12rem;
+                width: 8rem;
+                padding: $spacer-1;
+            
+                .monitor {
+                    height: 3rem;
+                    width: 5rem;
                 }
             
-                &-bottom {
-                    height: 4rem;
-                    width: 2rem;
-                }
-            
-                &-palm {
-                    height: 1.75rem;
-                    width: 2.5rem;
-                    &:after {
-                        @include absolutePseudo;
-                        left: 6px;
-                        bottom: -3px;
-                        top: unset;
+                .buttons {
+                    width: 100%;
+                    .button {
                         height: 1rem;
-                        width: 22px;
-                        background-color: $globalBgColor!important;
-                        border-bottom-color: $globalBgColor!important;
+                        width: 1rem;
+                        margin: $spacer-1;
+        
+                        &:nth-child(2) {
+                            animation-delay: $transition-dance * 0.3333;
+                        }
+        
+                        &:nth-child(3) {
+                            animation-delay: $transition-dance * 0.6666;
+                        }
                     }
-                }
-            
-                &.right {
-                    align-items: flex-start;
-                }
-            
-                &.left {
-                    align-items: flex-end;
                 }
             }
-
-            &-middle {
+        
+            .legs {
+                width: 100%;
+                .leg {
             
-                .torso {
-                    height: 12rem;
-                    width: 8rem;
-                    padding: $spacer-1;
-                
-                    .monitor {
-                        height: 3rem;
-                        width: 5rem;
+                    &-top {
+                        height: 4rem;
+                        width: 2rem;
                     }
-                
-                    .buttons {
-                        width: 100%;
-                        .button {
-                            height: 1rem;
-                            width: 1rem;
-                            margin: $spacer-1;
             
-                            &:nth-child(2) {
-                                animation-delay: $transition-dance * 0.3333;
-                            }
-            
-                            &:nth-child(3) {
-                                animation-delay: $transition-dance * 0.6666;
-                            }
-                        }
+                    &-bottom {
+                        height: 4rem;
+                        width: 2rem;
                     }
-                }
             
-                .legs {
-                    width: 100%;
-                    .leg {
-                
-                        &-top {
-                            height: 4rem;
-                            width: 2rem;
-                        }
-                
-                        &-bottom {
-                            height: 4rem;
-                            width: 2rem;
-                        }
-                
-                        &-sole {
-                            height: 2rem;
-                            width: 3rem;
-                        }
+                    &-sole {
+                        height: 2rem;
+                        width: 3rem;
                     }
                 }
             }

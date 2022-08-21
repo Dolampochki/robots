@@ -44,6 +44,9 @@ button {
         border-color: $themeColor;
         cursor: pointer;
         color: #fff;
+        i {
+            color: #fff;
+        }
     }
 
     &:disabled {

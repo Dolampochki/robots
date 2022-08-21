@@ -32,30 +32,28 @@ export const Robot = ({ number }) => {
     }
 
     return (
-        <div className={`robot-container number-${number}`}>
-            <div className='robot'>
+        <div className={`robot number-${number}`}>
 
-                <div className='robot-head'>
+            <div className='robot-head'>
 
-                    <Pair part='antenna' number={number} />
+                <Pair part='antenna' number={number} />
 
-                    <div className='robot-head-middle'>
-                        <Pair part='ear' noContainer={true} number={number} />
-                        <Part part='face' innerHtml={partsInnerHtml.face} number={number} />
-                    </div>
-
-                    <Part part='neck' number={number} />
+                <div className='robot-head-middle'>
+                    <Pair part='ear' noContainer={true} number={number} />
+                    <Part part='face' innerHtml={partsInnerHtml.face} number={number} />
                 </div>
-                <div className='robot-body'>
 
-                    <Pair part='hand' innerHtml={partsInnerHtml.hand} noContainer={true} parent={true} number={number} />
-                    
-                    <div className='robot-body-middle'>
-                        <Part part='torso' innerHtml={partsInnerHtml.torso} number={number} />
-                        <Pair part='leg' innerHtml={partsInnerHtml.leg} parent={true} number={number}  />
-                    </div>
+                <Part part='neck' number={number} />
+            </div>
+            <div className='robot-body'>
 
+                <Pair part='hand' innerHtml={partsInnerHtml.hand} noContainer={true} parent={true} number={number} />
+                
+                <div className='robot-body-middle'>
+                    <Part part='torso' innerHtml={partsInnerHtml.torso} number={number} />
+                    <Pair part='leg' innerHtml={partsInnerHtml.leg} parent={true} number={number}  />
                 </div>
+
             </div>
         </div>
     )
