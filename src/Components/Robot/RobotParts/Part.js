@@ -3,7 +3,7 @@ import SettingsPopup from 'Components/Controllers/SettingsPopup/SettingsPopup'
 import { generateClasses, isSameObject } from 'Helpers/helpers'
 import { partsSettings } from 'Helpers/consts'
 
-export const SinglePart = ({ 
+export const Part = ({ 
     part, 
     side, 
     innerHtml, 
@@ -51,4 +51,4 @@ export const SinglePart = ({
     )
 }
 
-export default SinglePart
+export default Part

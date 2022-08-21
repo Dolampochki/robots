@@ -1,7 +1,7 @@
 import React from 'react'
 import './Robot.scss'
-import SinglePart from './RobotParts/SinglePart'
-import PairContainer from './RobotParts/PairContainer'
+import Part from './RobotParts/Part'
+import Pair from './RobotParts/Pair'
 
 export const Robot = ({ number }) => {
 
@@ -11,8 +11,8 @@ export const Robot = ({ number }) => {
 
     const partsInnerHtml = {
         face:  <>
-            <PairContainer part='eye' number={number} />
-            <SinglePart part='mouth' number={number} />
+            <Pair part='eye' number={number} />
+            <Part part='mouth' number={number} />
         </>,
         hand: <>
             <div className='hand-top'></div>
@@ -25,8 +25,8 @@ export const Robot = ({ number }) => {
             <div className='leg-sole'></div>
         </>,
         torso: <>
-            <SinglePart part='monitor' number={ number } />
-            <SinglePart part='buttons' innerHtml={buttonsInnerHtml} parent={true} number={ number } />
+            <Part part='monitor' number={number} />
+            <Part part='buttons' innerHtml={buttonsInnerHtml} parent={true} number={number} />
         </>
 
     }
@@ -37,24 +37,24 @@ export const Robot = ({ number }) => {
 
                 <div className='robot-head'>
 
-                    <PairContainer part='antenna' number={number} />
+                    <Pair part='antenna' number={number} />
 
                     <div className='robot-head-middle'>
-                        <PairContainer part='ear' noContainer={true} number={number} />
-                        <SinglePart part='face' innerHtml={partsInnerHtml.face} number={number} />
+                        <Pair part='ear' noContainer={true} number={number} />
+                        <Part part='face' innerHtml={partsInnerHtml.face} number={number} />
                     </div>
 
-                    <SinglePart part='neck' number={number} />
+                    <Part part='neck' number={number} />
                 </div>
                 <div className='robot-body'>
 
-                    <PairContainer part='hand' innerHtml={partsInnerHtml.hand} noContainer={true} parent={true} number={number} />
+                    <Pair part='hand' innerHtml={partsInnerHtml.hand} noContainer={true} parent={true} number={number} />
                     
                     <div className='robot-body-middle'>
-                        <SinglePart part='torso' innerHtml={partsInnerHtml.torso} number={ number } />
-                        <PairContainer part='leg' innerHtml={partsInnerHtml.leg} parent={true} number={ number }  />
+                        <Part part='torso' innerHtml={partsInnerHtml.torso} number={number} />
+                        <Pair part='leg' innerHtml={partsInnerHtml.leg} parent={true} number={number}  />
                     </div>
-                    
+
                 </div>
             </div>
         </div>

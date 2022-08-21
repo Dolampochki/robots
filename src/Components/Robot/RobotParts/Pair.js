@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import SinglePart from 'Components/Robot/RobotParts/SinglePart'
+import Part from 'Components/Robot/RobotParts/Part'
 import { partsSettings } from 'Helpers/consts'
 
-export const PairContainer = ({ part, innerHtml, noContainer, parent = false, number }) => {
+export const Pair = ({ part, innerHtml, noContainer, parent = false, number }) => {
 
     const [pairSettings, setPairSettings] = useState({ ...partsSettings[part].defaultSettings })
 
     const pair = <>
         {['left', 'right'].map(side => 
-            <SinglePart 
+            <Part 
                 part={part}
                 side={side} 
                 key={side} 
@@ -16,7 +16,7 @@ export const PairContainer = ({ part, innerHtml, noContainer, parent = false, nu
                 pairSettings={pairSettings} 
                 parent={parent}
                 updatePartSettings={(e) => setPairSettings(e)}
-                number={ number } />
+                number={number} />
         )}
     </>
 
@@ -25,4 +25,4 @@ export const PairContainer = ({ part, innerHtml, noContainer, parent = false, nu
     )
 }
 
-export default PairContainer
+export default Pair
