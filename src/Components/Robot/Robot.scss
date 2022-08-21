@@ -17,45 +17,38 @@
         .right {
             order: 3;
         }
-        
+
         &-body-middle,
         .face {
             order: 2;
         }
 
         // margin-bottom
-        &-head-middle,
-        .neck,
-        .hand > *,
-        .torso,
-        .leg > * {
-            margin-bottom: $spacer-1;
+        $marginBottomParts: 'robot-head-middle', 'neck', 'hand > *', 'torso', 'leg > *';
+        @each $part in $marginBottomParts {
+            .#{$part} {
+                margin-bottom: $spacer-1;
+            }
         }
 
         // distribute 
-        .face,
-        .hand,
-        &-body-middle,
-        .torso,
-        .leg,
-        &-head {
-            flex-direction: column;
+        $flexColumnParts: 'face', 'hand', 'robot-body-middle', 'torso', 'leg', 'robot-head';
+        @each $part in $flexColumnParts {
+            .#{$part} {
+                flex-direction: column;
+            }
         }
 
-        .antennas,
-        .face,
-        .eyes,
-        .torso,
-        .buttons,
-        .legs {
-            justify-content: space-around;
+        $spaceAroundParts: 'antennas', 'face', 'eyes', 'buttons', 'torso', 'legs';
+        @each $part in $spaceAroundParts {
+            .#{$part} {
+                justify-content: space-around;
+            }
         }
-
 
         // props classes
-        $parts: 'antenna', 'ear', 'face', 'eye', 'mouth', 'neck', 'hand', 'torso', 'monitor', 'buttons', 'leg';
-
-        @each $part in $parts {
+        $propsParts: 'antenna', 'ear', 'face', 'eye', 'mouth', 'neck', 'hand', 'torso', 'monitor', 'buttons', 'leg';
+        @each $part in $propsParts {
             .#{$part} {
                 @include classesForProps;
             }
@@ -68,7 +61,6 @@
         }
 
         $dancingParts: 'ear', 'robot-head', 'eye', 'neck', 'hand', 'torso', 'monitor', 'button', 'leg';
-
         @each $part in $dancingParts {
             .#{$part} {
                 @include partAnimation($part);
@@ -76,6 +68,7 @@
         }
 
         // sizes and special props
+
         &-head {
         
             .antennas {
