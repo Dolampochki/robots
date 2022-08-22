@@ -51,23 +51,24 @@
     }
 
     // props classes
-    $propsParts: 'antenna', 'ear', 'face', 'eye', 'mouth', 'neck', 'hand', 'torso', 'monitor', 'buttons', 'leg';
-    @each $part in $propsParts {
+    $grayParts: 'antenna', 'antenna:after', 'ear', 'face', 'neck', 'hand > *', 'torso', 'leg > *';
+    @each $part in $grayParts {
         .#{$part} {
-            @include classesForProps;
+            background-color: $layoutBorderColor;
         }
     }
 
-    // dancing
-
-    .dance & * {
-        cursor: default
+    $lightParts: 'eye', 'mouth', 'monitor', 'buttons *';
+    @each $part in $lightParts {
+        .#{$part} {
+            background-color: $baseBorderColor;
+        }
     }
 
-    $dancingParts: 'ear', 'robot-head', 'eye', 'neck', 'hand', 'torso', 'monitor', 'button', 'leg';
-    @each $part in $dancingParts {
+    $roundedParts: 'eye', 'antenna', 'antenna:after', 'button';
+    @each $part in $roundedParts {
         .#{$part} {
-            @include partAnimation($part);
+            border-radius: $border-radius-round;
         }
     }
 
@@ -92,13 +93,11 @@
                 &.right {
                     transform: rotate(45deg);
                     transform-origin: bottom left;
-                    @include partAnimation('antenna-right');
                 }
         
                 &.left {
                     transform: rotate(-45deg);
                     transform-origin: bottom right;
-                    @include partAnimation('antenna-left');
                 }
             }
         }
@@ -116,21 +115,12 @@
                     .eye {
                         height: 1rem;
                         width: 1rem;
-        
-                        &.right {
-                            animation-delay: $transition-dance * 0.5;
-                        }
                     }
                 }
             
                 .mouth {
                     height: 0.5rem;
                     width: 2rem;
-                    transition: all $transition-long ease;
-        
-                    .dance & {
-                        transform: translate(0, -8px) scale(1.5, 1)
-                    }
                 }
             
             }
@@ -204,14 +194,6 @@
                         height: 1rem;
                         width: 1rem;
                         margin: $spacer-1;
-        
-                        &:nth-child(2) {
-                            animation-delay: $transition-dance * 0.3333;
-                        }
-        
-                        &:nth-child(3) {
-                            animation-delay: $transition-dance * 0.6666;
-                        }
                     }
                 }
             }

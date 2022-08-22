@@ -23,7 +23,7 @@ export const RobotsCountController = ({ updateCount, updateDance }) => {
         <div className='robots-count-controller'>
             <button className='round-button circle' disabled={count < 2}  onClick={() => changeCount(false)}><i>-</i></button>
             <button className='round-button circle' disabled={count > 5} onClick={() => changeCount(true)}><i>+</i></button>
-            <button className={`round-button ${dance ? 'active' : ''}`} onClick={toggleDance}>Dance!</button>
+            <button className={`round-button ${dance ? 'active' : ''}`} onClick={toggleDance}>{dance ? 'Stop' : 'Dance!'}</button>
         </div>
     )
 }
