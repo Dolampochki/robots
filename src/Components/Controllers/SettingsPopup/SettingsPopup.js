@@ -18,7 +18,7 @@ export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side, nu
     
     const getStyles = () => {
         const settingPopupWidth = colors.length * 56 + 32
-        const settingPopupHeight = partsSettings[part].props.length * 60 + 140
+        const settingPopupHeight = Object.keys(partsSettings[part]).length * 60 + 140
         const targetElement = settingsPopupElement?.previousSibling
         const targetElementCoords = targetElement ? targetElement.getBoundingClientRect() : { top: 0, left: 0, bottom: 0, width: 0 }
         let direction = 'bottom'
@@ -94,7 +94,7 @@ export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side, nu
             <div className='settings-popup-arrow' style={arrowStyle}></div>
             {isOpen && <>
                 <h2>{capitalizeWord(part)}</h2>
-                {partsSettings[part].props.map(prop => 
+                {Object.keys(partsSettings[part]).map(prop => 
                     <SettingsRow 
                         key={prop}
                         propClass={propsClasses[prop]}

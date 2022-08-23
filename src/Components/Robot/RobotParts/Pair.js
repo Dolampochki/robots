@@ -4,7 +4,7 @@ import { partsSettings } from 'Helpers/consts'
 
 export const Pair = ({ part, innerHtml, noContainer, parent = false, number }) => {
 
-    const [pairSettings, setPairSettings] = useState({ ...partsSettings[part].defaultSettings })
+    const [pairSettings, setPairSettings] = useState({ ...partsSettings[part] })
 
     const pair = <>
         {['left', 'right'].map(side => 

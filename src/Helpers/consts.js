@@ -23,11 +23,16 @@ const backgroundColorLightParts = ['eye', 'mouth', 'monitor', 'buttons']
 const partsSettings = {}
 
 parts.forEach(part => {
-    partsSettings[part] = { props: allPartsProps, defaultSettings: { ...defaultSettings } }
-    if (largeParts.includes(part)) partsSettings[part].props = [...partsSettings[part].props, ...largePartsProps]
-    if (distributeParts.includes(part)) partsSettings[part].props = [...partsSettings[part].props, 'distribute']
-    if (borderRadiusParts.includes(part)) partsSettings[part].defaultSettings = { ...partsSettings[part].defaultSettings, ...borderRadius }
-    if (backgroundColorLightParts.includes(part)) partsSettings[part].defaultSettings = { ...partsSettings[part].defaultSettings, ...backgroundColorLight }
+    let props = allPartsProps
+    if (largeParts.includes(part)) props = [...props, ...largePartsProps]
+    if (distributeParts.includes(part)) props = [...props, 'distribute']
+
+    let settings = { ...defaultSettings }
+    if (borderRadiusParts.includes(part)) settings = { ...settings, ...borderRadius }
+    if (backgroundColorLightParts.includes(part)) settings = { ...settings, ...backgroundColorLight }
+
+    partsSettings[part] = {}
+    props.forEach(prop => partsSettings[part][prop] = settings[prop])
 })
 
 const colors = ['grey', 'green', 'orange', 'dark-grey', 'light-grey', 'no-color']

@@ -14,7 +14,7 @@ export const Part = ({
 }) => {
 
     const [isOpenSettings, setIsOpenSettings] = useState(false)
-    const [settings, setSettings] = useState(pairSettings ? { ...pairSettings } : { ...partsSettings[part].defaultSettings })
+    const [settings, setSettings] = useState(pairSettings ? { ...pairSettings } : { ...partsSettings[part] })
 
     const openSettings = (e) => {
         let classList = [ ...e.target.classList ]

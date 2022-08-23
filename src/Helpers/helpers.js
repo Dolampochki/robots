@@ -50,14 +50,12 @@ function isObject(object) {
 
 const generateClasses = (part, settings, side, parent) => {
     let classes = `${part} ${side ? side : ''} ${parent ? 'parent' : ''}`
-    if (partsSettings[part].props) {
-        partsSettings[part].props.forEach(prop => {
-            if (prop in settings) {
-                if (typeof settings[prop] === 'string') classes += ` ${settings[prop]}`
-                if (typeof settings[prop] === 'boolean' && settings[prop]) classes += ` ${propsClasses[prop]}`
-            }
-        })
-    }
+    Object.keys(partsSettings[part]).forEach(prop => {
+        if (prop in settings) {
+            if (typeof settings[prop] === 'string') classes += ` ${settings[prop]}`
+            if (typeof settings[prop] === 'boolean' && settings[prop]) classes += ` ${propsClasses[prop]}`
+        }
+    })
     return classes
 }
 
