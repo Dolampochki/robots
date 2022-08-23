@@ -10,14 +10,25 @@ const defaultSettings = {
 const backgroundColorLight = { backgroundColor: 'background-light-grey' }
 const borderRadius = { borderRadius: true }
 
-const propsClasses = {
-    backgroundColor: 'background-color',
-    borderColor: 'border-color',
-    roundedTop: 'rounded-top',
-    roundedBottom: 'rounded-bottom',
-    borderRadius: 'border-radius',
-    distribute: 'distribute'
-}
+const allPartsProps = ['backgroundColor', 'borderColor', 'borderRadius']
+const largePartsProps = ['roundedTop', 'roundedBottom']
+
+const parts = ['antenna', 'ear', 'face', 'eye', 'mouth', 'neck', 'hand', 'torso', 'monitor', 'buttons', 'leg']
+
+const largeParts = ['face', 'torso', 'monitor']
+const distributeParts = ['buttons']
+const borderRadiusParts = ['antenna', 'eye', 'buttons']
+const backgroundColorLightParts = ['eye', 'mouth', 'monitor', 'buttons']
+
+const partsSettings = {}
+
+parts.forEach(part => {
+    partsSettings[part] = { props: allPartsProps, defaultSettings: { ...defaultSettings } }
+    if (largeParts.includes(part)) partsSettings[part].props = [...partsSettings[part].props, ...largePartsProps]
+    if (distributeParts.includes(part)) partsSettings[part].props = [...partsSettings[part].props, 'distribute']
+    if (borderRadiusParts.includes(part)) partsSettings[part].defaultSettings = { ...partsSettings[part].defaultSettings, ...borderRadius }
+    if (backgroundColorLightParts.includes(part)) partsSettings[part].defaultSettings = { ...partsSettings[part].defaultSettings, ...backgroundColorLight }
+})
 
 const colors = ['grey', 'green', 'orange', 'dark-grey', 'light-grey', 'no-color']
 const booleans = [false, true]
@@ -31,28 +42,14 @@ const settingsOptions = {
     distribute: ['horizontal', 'vertical']
 }
 
-const allPartsProps = ['backgroundColor', 'borderColor', 'borderRadius']
-const largePartsProps = ['roundedTop', 'roundedBottom']
-
-const parts = ['antenna', 'ear', 'face', 'eye', 'mouth', 'neck', 'hand', 'torso', 'monitor', 'buttons', 'leg']
-
-const partsSettings = {}
-
-parts.forEach(part => partsSettings[part] = { props: allPartsProps, defaultSettings: { ...defaultSettings } })
-
-const allLargePartsProps = [...allPartsProps, ...largePartsProps]
-partsSettings.face.props = allLargePartsProps
-partsSettings.torso.props = allLargePartsProps
-partsSettings.monitor.props = allLargePartsProps
-partsSettings.buttons.props = [...allPartsProps, 'distribute']
-
-const lightSettings = { ...defaultSettings, ...backgroundColorLight }
-const lightRoundedSettings = { ...lightSettings, ...borderRadius }
-partsSettings.buttons.defaultSettings = lightRoundedSettings
-partsSettings.eye.defaultSettings = lightRoundedSettings
-partsSettings.monitor.defaultSettings = lightSettings
-partsSettings.mouth.defaultSettings = lightSettings
-partsSettings.antenna.defaultSettings = { ...defaultSettings, ...borderRadius }
+const propsClasses = {
+    backgroundColor: 'background-color',
+    borderColor: 'border-color',
+    roundedTop: 'rounded-top',
+    roundedBottom: 'rounded-bottom',
+    borderRadius: 'border-radius',
+    distribute: 'distribute'
+}
 
 export {
     partsSettings,
