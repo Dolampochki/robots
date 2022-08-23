@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Part from 'Components/Robot/RobotParts/Part'
 import { partsSettings } from 'Helpers/consts'
 
-export const Pair = ({ part, innerHtml, noContainer, parent = false, number }) => {
+export const Pair = ({ part, innerHtml, noContainer, number }) => {
 
     const [pairSettings, setPairSettings] = useState({ ...partsSettings[part] })
 
@@ -13,9 +13,8 @@ export const Pair = ({ part, innerHtml, noContainer, parent = false, number }) =
                 side={side} 
                 key={side} 
                 innerHtml={innerHtml}
-                pairSettings={pairSettings} 
-                parent={parent}
-                updatePartSettings={(e) => setPairSettings(e)}
+                pairSettings={pairSettings}
+                updatePartSettings={setPairSettings}
                 number={number} />
         )}
     </>

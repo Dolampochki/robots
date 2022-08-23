@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SettingsPopup from 'Components/Controllers/SettingsPopup/SettingsPopup'
 import { generateClasses, isSameObject } from 'Helpers/helpers'
-import { partsSettings } from 'Helpers/consts'
+import { partsSettings, parentParts } from 'Helpers/consts'
 
 export const Part = ({ 
     part, 
@@ -9,7 +9,6 @@ export const Part = ({
     innerHtml, 
     pairSettings, 
     updatePartSettings,
-    parent = false,
     number = 0
 }) => {
 
@@ -18,7 +17,7 @@ export const Part = ({
 
     const openSettings = (e) => {
         let classList = [ ...e.target.classList ]
-        if (parent) classList = [ ...classList, ...e.target.parentNode.classList ]
+        if (parentParts.includes(part)) classList = [ ...classList, ...e.target.parentNode.classList ]
         if (!classList.includes(part)) return
         setIsOpenSettings(true)
     }
@@ -35,7 +34,7 @@ export const Part = ({
         if (!isSameObject(pairSettings, settings)) setSettings(pairSettings)
     }, [pairSettings])
     
-    const classes = generateClasses(part, settings, side, parent)
+    const classes = generateClasses(part, settings, side)
 
     return (
         <>

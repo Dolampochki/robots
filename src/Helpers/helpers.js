@@ -1,4 +1,4 @@
-import { partsSettings, propsClasses } from './consts'
+import { partsSettings, propsClasses, parentParts } from './consts'
 
 const capitalizeWord = (word) => {
     if (!word || !['string', 'number'].includes(typeof word)) return ''
@@ -48,8 +48,8 @@ function isObject(object) {
     return object != null && typeof object === 'object' && !Array.isArray(object)
 }
 
-const generateClasses = (part, settings, side, parent) => {
-    let classes = `${part} ${side ? side : ''} ${parent ? 'parent' : ''}`
+const generateClasses = (part, settings, side) => {
+    let classes = `${part} ${side ? side : ''} ${parentParts.includes(part) ? 'parent' : ''}`
     Object.keys(partsSettings[part]).forEach(prop => {
         if (prop in settings) {
             if (typeof settings[prop] === 'string') classes += ` ${settings[prop]}`

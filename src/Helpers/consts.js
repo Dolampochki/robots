@@ -1,3 +1,17 @@
+
+
+const colors = ['grey', 'green', 'orange', 'dark-grey', 'light-grey', 'no-color']
+const booleans = [false, true]
+
+const settingsOptions = {
+    backgroundColor: colors.map(c => `background-${c}`),
+    borderColor: colors.map(c => `border-${c}`),
+    roundedTop: booleans,
+    roundedBottom: booleans,
+    borderRadius: booleans,
+    distribute: ['horizontal', 'vertical']
+}
+
 const defaultSettings = {
     backgroundColor: 'background-grey',
     borderColor: 'border-no-color',
@@ -35,18 +49,6 @@ parts.forEach(part => {
     props.forEach(prop => partsSettings[part][prop] = settings[prop])
 })
 
-const colors = ['grey', 'green', 'orange', 'dark-grey', 'light-grey', 'no-color']
-const booleans = [false, true]
-
-const settingsOptions = {
-    backgroundColor: colors.map(c => `background-${c}`),
-    borderColor: colors.map(c => `border-${c}`),
-    roundedTop: booleans,
-    roundedBottom: booleans,
-    borderRadius: booleans,
-    distribute: ['horizontal', 'vertical']
-}
-
 const propsClasses = {
     backgroundColor: 'background-color',
     borderColor: 'border-color',
@@ -56,9 +58,12 @@ const propsClasses = {
     distribute: 'distribute'
 }
 
+const parentParts = ['hand', 'leg', 'buttons']
+
 export {
     partsSettings,
     propsClasses,
     settingsOptions,
-    colors
+    colors,
+    parentParts
 }

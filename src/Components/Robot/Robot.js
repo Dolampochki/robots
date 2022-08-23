@@ -26,7 +26,7 @@ export const Robot = ({ number }) => {
         </>,
         torso: <>
             <Part part='monitor' number={number} />
-            <Part part='buttons' innerHtml={buttonsInnerHtml} parent={true} number={number} />
+            <Part part='buttons' innerHtml={buttonsInnerHtml} number={number} />
         </>
 
     }
@@ -47,11 +47,11 @@ export const Robot = ({ number }) => {
             </div>
             <div className='robot-body'>
 
-                <Pair part='hand' innerHtml={partsInnerHtml.hand} noContainer={true} parent={true} number={number} />
+                <Pair part='hand' innerHtml={partsInnerHtml.hand} noContainer={true} number={number} />
                 
                 <div className='robot-body-middle'>
                     <Part part='torso' innerHtml={partsInnerHtml.torso} number={number} />
-                    <Pair part='leg' innerHtml={partsInnerHtml.leg} parent={true} number={number}  />
+                    <Pair part='leg' innerHtml={partsInnerHtml.leg} number={number}  />
                 </div>
 
             </div>
