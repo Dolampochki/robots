@@ -48,8 +48,8 @@ function isObject(object) {
     return object != null && typeof object === 'object' && !Array.isArray(object)
 }
 
-const generateClasses = (part, settings, optional) => {
-    let classes = `${part} ${optional ? optional : ''}`
+const generateClasses = (part, settings, side, parent) => {
+    let classes = `${part} ${side ? side : ''} ${parent ? 'parent' : ''}`
     if (partsSettings[part].props) {
         partsSettings[part].props.forEach(prop => {
             if (prop in settings) {

@@ -35,7 +35,7 @@ export const Part = ({
         if (!isSameObject(pairSettings, settings)) setSettings(pairSettings)
     }, [pairSettings])
     
-    const classes = `${generateClasses(part, settings, side)} ${parent ? 'parent' : ''}`
+    const classes = generateClasses(part, settings, side, parent)
 
     return (
         <>
