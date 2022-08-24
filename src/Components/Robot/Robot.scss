@@ -2,7 +2,6 @@
 @import "Styles/mixin.scss";
 
 
-
 .robot {
     @include flexCenter;
     flex-direction: column;
@@ -12,7 +11,7 @@
         @include flexCenter;
         position: relative;
     }
-    
+
     // distribute 
     $flexColumnParts: 'face', 'hand', 'robot-body-middle', 'torso', 'leg', 'robot-head';
     @each $part in $flexColumnParts {
@@ -79,14 +78,14 @@
             width: 50%;
             .antenna {
                 height: 3rem;
-                width: 0;
+                width: 6px;
         
                 &:after {
                     @include absolutePseudo;
                     top: -$spacer;
-                    left: -0.5rem;
-                    height: 1rem;
-                    width: 1rem;
+                    left: -$spacer-1;
+                    height: $spacer;
+                    width: $spacer;
                 }
         
                 &.right {
@@ -172,8 +171,8 @@
                     top: unset;
                     height: 1rem;
                     width: 22px;
-                    background-color: $globalBgColor!important;
-                    border-bottom-color: $globalBgColor!important;
+                    background-color: $black!important;
+                    border-bottom-color: $black!important;
                 }
             }
         

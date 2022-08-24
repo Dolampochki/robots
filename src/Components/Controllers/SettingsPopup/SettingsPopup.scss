@@ -7,25 +7,25 @@
     left: 0;
     top: 0;
     padding: $spacer;
-    background: $globalBgColor;
+    background: $black;
     box-shadow: $box-shadow-base;
     z-index: 10;
     display: none;
 
     .settings-popup-arrow {
         position: fixed;
-        background: $globalBgColor;
+        background: $black;
         transform: rotate(45deg);
         width: $spacer;
         height: $spacer;
     }
 
     &.bottom .settings-popup-arrow {
-        box-shadow: -2px -2px 0 2px rgba($themeColor, 0.3);
+        box-shadow: -2px -2px 0 2px rgba($green, 0.3);
     }
 
     &.top .settings-popup-arrow {
-        box-shadow: 2px 2px 0 2px rgba($themeColor, 0.3);
+        box-shadow: 2px 2px 0 2px rgba($green, 0.3);
     }
 
     &.show {

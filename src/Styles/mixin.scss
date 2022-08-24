@@ -8,8 +8,6 @@
 
 @mixin absolutePseudo {
     position: absolute;
-    left: 0;
-    top: 0;
     display: block;
     content: "";
 }
@@ -25,12 +23,12 @@
 
 @mixin backgroundColor {
     $backgrounds: 
-        "background-grey" $layoutBorderColor, 
-        "background-green" $themeColor, 
-        "background-orange" $warningColor, 
-        "background-dark-grey" $tableLightBgColor, 
-        "background-light-grey" $baseBorderColor, 
-        "background-no-color" $globalBgColor;
+        "background-grey" $defaultGray, 
+        "background-green" $green, 
+        "background-orange" $orange, 
+        "background-dark-grey" $darkGray, 
+        "background-light-grey" $lightGray, 
+        "background-no-color" $black;
 
     @each $class, $color in $backgrounds {
         &.#{$class} {
@@ -41,11 +39,11 @@
 
 @mixin borderColor {
     $borders: 
-        "border-grey" $layoutBorderColor, 
-        "border-green" $themeColor, 
-        "border-orange" $warningColor, 
-        "border-dark-grey" $tableLightBgColor, 
-        "border-light-grey" $baseBorderColor, 
+        "border-grey" $defaultGray, 
+        "border-green" $green, 
+        "border-orange" $orange, 
+        "border-dark-grey" $darkGray, 
+        "border-light-grey" $lightGray, 
         "border-no-color" transparent;
 
     @each $class, $color in $borders {

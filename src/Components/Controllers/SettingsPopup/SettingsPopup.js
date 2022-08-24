@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react'
 import { capitalizeWord } from 'Helpers/helpers'
 import './SettingsPopup.scss'
-import { settingsOptions, partsSettings, propsClasses, colors } from 'Helpers/consts'
+import { settingsOptions, propsClasses } from 'Helpers/consts'
 import SettingsRow from './SettingsRow/SettingsRow'
-import { isSameObject } from 'Helpers/helpers'
+import { isSameObject, getPositionStyles } from 'Helpers/helpers'
 
 export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side, number }) => {
     const [currentSettings, setCurrentSettings] = useState({ ...settings })
@@ -15,57 +15,8 @@ export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side, nu
     
     const settingsPopupElementId = `settings-popup-${part}-${number}${side ? '-' + side : ''}`
     const settingsPopupElement = document.getElementById(settingsPopupElementId)
-    
-    const getStyles = () => {
-        const settingPopupWidth = colors.length * 56 + 32
-        const settingPopupHeight = Object.keys(partsSettings[part]).length * 60 + 140
-        const targetElement = settingsPopupElement?.previousSibling
-        const targetElementCoords = targetElement ? targetElement.getBoundingClientRect() : { top: 0, left: 0, bottom: 0, width: 0 }
-        let direction = 'bottom'
-        const spacer = 40
-        const arrowSpacer = 8
 
-        const targetElementCenter = targetElementCoords.left + targetElementCoords.width / 2
-        let left = targetElementCenter  - settingPopupWidth / 2
-        let arrowLeft = 0
-        if (left < spacer) {
-            left = spacer
-            arrowLeft = targetElementCenter - arrowSpacer
-        }
-        if (left + settingPopupWidth > window.innerWidth - spacer) {
-            left = window.innerWidth - settingPopupWidth - spacer
-            arrowLeft = targetElementCenter - arrowSpacer
-        }
-
-        let top = targetElementCoords.top + 24
-        if (top + settingPopupHeight > window.innerHeight) {
-            const targetBottomTop = targetElementCoords.bottom ? targetElementCoords.bottom - spacer - settingPopupHeight : 0
-            top = window.innerHeight - settingPopupHeight - spacer
-            if (targetBottomTop && targetBottomTop >= spacer) {
-                top = targetBottomTop
-                direction = 'top'
-            } 
-        }
-
-        const popupStyle = { 
-            left: `${left}px`, 
-            top: `${top}px`, 
-            width: `${settingPopupWidth}px`,
-            height: `${settingPopupHeight}px` 
-        }
-
-        const arrowTop = direction === 'bottom' ? top - arrowSpacer : top + settingPopupHeight - arrowSpacer
-
-        const arrowStyle = {
-            top: `${arrowTop}px`
-        }
-
-        if (arrowLeft) arrowStyle.left = `${arrowLeft}px`
-
-        return { popupStyle, direction, arrowStyle }
-    }
-
-    const { popupStyle, direction, arrowStyle } = getStyles()
+    const { popupStyle, direction, arrowStyle } = getPositionStyles(currentSettings, settingsPopupElement)
     
     useEffect(() => {
         if (!isSameObject(settings, currentSettings)) setCurrentSettings(settings)
@@ -91,10 +42,10 @@ export const SettingsPopup = ({ updateSettings, part, isOpen, settings, side, nu
 
     return (
         <div id={settingsPopupElementId} className={`settings-popup ${direction} ${isOpen ? 'show' : ''}`} style={popupStyle}>
-            <div className='settings-popup-arrow' style={arrowStyle}></div>
             {isOpen && <>
+                <div className='settings-popup-arrow' style={arrowStyle}></div>
                 <h2>{capitalizeWord(part)}</h2>
-                {Object.keys(partsSettings[part]).map(prop => 
+                {Object.keys(currentSettings).map(prop => 
                     <SettingsRow 
                         key={prop}
                         propClass={propsClasses[prop]}
